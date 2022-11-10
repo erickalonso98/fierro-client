@@ -1,0 +1,30 @@
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-header">
+            <div class="card-title">
+                <h1 class="text-center">{{ this.title }}</h1>
+                <p class="text-center">{{ this.text }}</p>
+            </div>
+        </div>
+        <div class="card-body">
+            <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+                <div class="form-group">
+                    <label for="username">{{ this.labelEmail }}</label>
+                    <input type="text" name="email" #email="ngModel" [(ngModel)]="this.user.email"  class="form-control" placeholder="correo electronico" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                    <small *ngIf="!this.email.valid && this.email.touched" class="invalid-feedback d-block">
+                        El correo electronico es obligatorio
+                    </small>
+                </div>
+                <div class="form-group">
+                    <label for="passowrd">{{ this.labelPassword }}</label>
+                    <input type="password" name="password" #password="ngModel" [(ngModel)]="this.user.password" class="form-control" placeholder="contraseña" required>
+                    <small *ngIf="!this.password.valid && this.password.touched" class="invalid-feedback d-block">
+                        La Contraseña es obligatoria
+                    </small>
+                </div>
+                <input type="submit" class="btn btn-primary btn-block" value="{{ this.Enter }}" [disabled]="this.loginForm.invalid">
+                <p class="text-center mt-3">¿No Tienes cuenta? <a class="texto" routerLink="/register">{{ this.textRegister }}</a></p>
+            </form>
+        </div>
+    </div>
+</div>

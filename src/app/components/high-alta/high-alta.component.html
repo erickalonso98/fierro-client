@@ -1,0 +1,29 @@
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-header">
+            <div class="card-title">
+                <h2 class="text-center">{{ this.title_page }}</h2>
+            </div>
+        </div>
+        <div class="card-body">
+            <form #Formhigh="ngForm" (ngSubmit)="onSubmit(Formhigh)">
+                <div class="form-group">
+                    <label for="num_iron">{{ this.labelNum }}</label>
+                    <input type="text" class="form-control" name="invoice" #invoice="ngModel" [(ngModel)]="this.high.invoice" placeholder="Numero de fierro" required>
+                    <small *ngIf="!this.invoice.valid && this.invoice.touched" class="invalid-feedback d-block">
+                        El numero de fierro es obligatorio
+                    </small>
+                </div>
+                <div class="form-group">
+                    <label for="amount">{{ this.labelMonto }}</label>
+                    <input type="number" class="form-control" name="amount" #amount="ngModel" [(ngModel)]="this.high.amount" placeholder="Monto de pago" required>
+                    <small *ngIf="!this.amount.valid && this.amount.touched" class="invalid-feedback d-block">
+                        El monto es obligatorio
+                    </small>
+                </div>
+                <input type="submit" class="btn btn-success" value="{{ this.accept }}" [disabled]="this.Formhigh.invalid">
+                <a routerLink="/super-admin" class="btn btn-danger ml-2">{{ this.cancel }}</a>
+            </form>
+        </div>
+    </div>
+</div>

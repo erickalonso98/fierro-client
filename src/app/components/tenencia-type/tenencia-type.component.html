@@ -1,0 +1,73 @@
+<ng-sidebar-container>
+    <!--sidebar-->
+    <ng-sidebar [(opened)]="this.opened">
+        <div class="text-justify mt-2 ml-4">
+          <h3 title="menu">{{ this.menu }}</h3>
+            <button class="btn btn-primary" (click)="toggleSidebar()">{{ this.cerrar }}</button>
+        </div>
+        <ul class="nav flex-column mt-2 text-justify">
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/person" (click)="toggleSidebar()">{{ this.person }}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/property" (click)="toggleSidebar()">{{ this.property }}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/iron" (click)="toggleSidebar()">{{ this.iron }}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/exploitation-type" (click)="toggleSidebar()">{{ this.exploitation }}</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/type-tenencia" (click)="toggleSidebar()">{{ this.tenencia }}</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/iron-type" (click)="toggleSidebar()">{{ this.type_iron }}</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" routerLink="/users" (click)="toggleSidebar()">{{ this.users}}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" routerLink="/roles-users" (click)="toggleSidebar()">{{ this.roles }}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" routerLink="/generate_report" (click)="toggleSidebar()">{{ this.report }}</a>
+            </li>
+        </ul>
+    </ng-sidebar>
+    <div ng-sidebar-content>
+        <!--page content-->  
+    <div class="container mt-4">
+      <div class="row">
+        <div class="col-md-3">
+          <button class="btn btn-primary mt-2 ml-2" (click)="toggleSidebar()">{{ this.open }}</button>
+        </div>
+        <div class="col-md-9">
+          <div class="card">
+            <div class="card-header">
+              <div class="card-title">
+                <h2 class="text-center">{{ this.page_title }}</h2>
+                <p class="text-center">{{ this.parrafo }}</p>
+              </div>
+            </div>
+            <div class="card-body">
+              <form #tenenciaForm="ngForm" (ngSubmit)="onSubmit(tenenciaForm)">
+                <div class="form-group">
+                  <label for="name">{{ this.labelName }}</label>
+                  <input type="text" name="name" class="form-control" #name="ngModel" [(ngModel)]="this.type_tenencia.name" placeholder="Tipo de tenencia de la tierra" required="">
+                  <small *ngIf="!this.name.valid && this.name.touched" class="invalid-feedback d-block">
+                    El nombre de la tierra es obligatoria
+                  </small>
+                </div>
+                <input type="submit" class="btn btn-primary btn-block mt-2" value="{{ this.btnRegister }}" [disabled]="this.tenenciaForm.invalid">
+              </form>
+            </div>
+          </div>
+          <hr>
+            <h2 class="text-center mt-5">{{ this.list }}</h2>
+            <app-list-tenencias></app-list-tenencias>
+        </div>
+      </div>
+    </div>
+    </div>
+</ng-sidebar-container>

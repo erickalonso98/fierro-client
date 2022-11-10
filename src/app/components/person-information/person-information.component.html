@@ -1,0 +1,47 @@
+<ng-sidebar-container>
+    <!--sidebar-->
+    <ng-sidebar [(opened)]="this.opened">
+        <div class="text-justify mt-2 ml-4">
+          <h3 title="menu">{{ this.menu }}</h3>
+            <button class="btn btn-primary" (click)="toggleSidebar()">{{ this.cerrar }}</button>
+        </div>
+        <ul class="nav flex-column mt-2 text-justify">
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/person" (click)="toggleSidebar()">{{ this.person }}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/property" (click)="toggleSidebar()">{{ this.property }}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/iron" (click)="toggleSidebar()">{{ this.iron }}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/exploitation-type" (click)="toggleSidebar()">{{ this.exploitation }}</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/type-tenencia" (click)="toggleSidebar()">{{ this.tenencia }}</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/iron-type" (click)="toggleSidebar()">{{ this.type_iron }}</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" routerLink="/users" (click)="toggleSidebar()">{{ this.users}}</a>
+            </li>
+        </ul>
+    </ng-sidebar>
+    <div ng-sidebar-content>
+        <!--page content-->  
+        <div class="container w-100 mt-4">
+            <div class="row">
+                <div class="col-md-2">
+                    <button class="btn btn-primary mt-2 ml-2" (click)="toggleSidebar()">{{ this.open }}</button>
+                </div>
+                <div class="col-md-12">
+                    <h2 class="text-center">{{ this.title_page }}</h2>
+                    <p class="text-center">{{ this.parrafo }}</p>
+                    <app-person-list></app-person-list>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-sidebar-container>

@@ -1,0 +1,38 @@
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Num. fierro</th>
+        <th scope="col">Marca</th>
+        <th scope="col">Nun. de libro</th>
+        <th scope="col">Num. de foja</th>
+        <th scope="col">Imagen</th>
+        <th scope="col">Año</th>
+        <th scope="col">Validez</th>
+        <th scope="col">Vigencia</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let iron of dataIron">
+        <th scope="row">{{ iron.id }}</th>
+        <td>{{ iron.name }}</td>
+        <td>{{ iron.num_iron }}</td>
+        <td>{{ iron.brand }}</td>
+        <td>{{ iron.num_library }}</td>
+        <td>{{ iron.num_foja }}</td>
+        <td>
+            <div *ngIf="iron.image">
+                <img class="rounded mx-auto d-block" src="{{ this.url+'iron/image/'+iron.image }}" width="100px" height="100px" alt="fierro">
+            </div>
+
+            <div *ngIf="!iron.image">
+                <img src="https://via.placeholder.com/50x50" alt="">
+            </div>
+        </td>
+        <td>{{ iron.year }}</td>
+        <td>{{ iron.validity }}</td>
+        <td>{{ iron.limite }}</td>
+      </tr>
+    </tbody>
+  </table>

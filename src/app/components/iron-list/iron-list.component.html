@@ -1,0 +1,18 @@
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Creación</th>
+        <th scope="col">Actualización</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let irons of listTypeiron">
+        <th scope="row">{{ irons.id }}</th>
+        <td>{{ irons.name }}</td>
+        <td>{{ irons.created_at }}</td>
+        <td>{{ irons.updated_at }}</td>
+      </tr>
+    </tbody>
+  </table>

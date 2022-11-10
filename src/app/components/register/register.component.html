@@ -1,0 +1,63 @@
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-header">
+            <div class="card-title">
+                <h1 class="text-center">{{ this.title }}</h1>
+                <p class="text-center">{{ this.parrafo }} <a class="textoLink" routerLink="/login">Login</a></p>
+            </div>
+        </div>
+        <div class="card-body">
+            <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)">
+                <div class="form-group">
+                    <label for="name">{{ this.labelName }}</label>
+                    <input type="text" name="name" #name="ngModel" [(ngModel)]="this.user.name" class="form-control" placeholder="Nombre" required pattern="[a-zA-Z]+">
+                    <small *ngIf="!this.name.valid && this.name.touched" class="invalid-feedback d-block">
+                        El nombre es obligatorio
+                    </small>
+                </div>
+                <div class="form-group">
+                    <label for="surname">{{ this.apppat }}</label>
+                    <input type="text" name="surname" #surname="ngModel" [(ngModel)]="this.user.surname" class="form-control" placeholder="Apellido paterno" required pattern="[a-zA-Z]+">
+                    <small *ngIf="!this.surname.valid && this.surname.touched" class="invalid-feedback d-block">
+                        El Apellido paterno es obligatorio
+                    </small>
+                </div>
+                <div class="form-group">
+                    <label for="lastname">{{ this.apmat}}</label>
+                    <input type="text" name="lastname" #lastname="ngModel" [(ngModel)]="this.user.lastname" class="form-control" placeholder="Apellido materno" required pattern="[a-zA-Z]+">
+                    <small *ngIf="!this.lastname.valid && this.lastname.touched" class="invalid-feedback d-block">
+                        El Apellido materno es obligatorio
+                    </small>
+                </div>
+                <div class="form-group">
+                    <label for="email">{{ this.labelEmail }}</label>
+                    <input type="email" name="email" #email="ngModel" [(ngModel)]="this.user.email" class="form-control" placeholder="Correo electronico" required  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                    <small *ngIf="!this.email.valid && this.email.touched" class="invalid-feedback d-block">
+                        El correo electronico es obligatorio
+                    </small>
+                </div>
+                <div class="form-group">
+                    <label for="pass">{{ this.labelPassword }}</label>
+                    <input type="password" name="password" #password="ngModel" [(ngModel)]="this.user.password" class="form-control" placeholder="Contraseña" required>
+                    <small *ngIf="!this.password.valid && this.password.touched" class="invalid-feedback d-block">
+                        La contraseña es obligatoria
+                    </small>
+                </div>
+                <div class="form-group">
+                    <label for="roles">{{ this.labelRol }}</label>
+                    <select name="roles" #roles="ngModel" [(ngModel)]="this.user.roles" class="form-control" required="">
+                       <option *ngFor="let roles of rol_user" value="{{ roles.id }}">{{ roles.name }}</option>
+                    </select>
+                    <small *ngIf="!this.roles.valid && this.roles.touched" class="invalid-feedback d-block">
+                        El rol del usuario es obligatorio
+                    </small>
+                </div>
+                <div class="form-group">
+                    <label for="desc">{{ this.desc }}</label>
+                    <textarea [froalaEditor] name="description" #description="ngModel" [(ngModel)]="this.user.description" [(froalaModel)]="this.user.description" cols="30" rows="10" class="form-control" placeholder="Descripcion del usuario"></textarea>   
+                </div>
+                <input type="submit" class="btn btn-primary btn-block" value="{{ this.EnterRegister }}" [disabled]="this.registerForm.invalid">
+            </form>
+        </div>
+    </div>
+</div>

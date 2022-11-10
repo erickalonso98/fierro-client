@@ -1,0 +1,55 @@
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-header">
+            <div class="card-title">
+                <h1 class="text-center">{{ this.title }}</h1>
+                <p class="text-center">{{ this.parrafo }}</p>
+            </div>
+        </div>
+        <div class="card-body">
+            <form #updateForm="ngForm" (ngSubmit)="onSubmit(updateForm)">
+                <div class="form-group">
+                    <label for="name">{{ this.labelName }}</label>
+                    <input type="text" name="name" #name="ngModel" [(ngModel)]="this.user.name" class="form-control" placeholder="Nombre" required pattern="[a-zA-Z]+">
+                    <small *ngIf="!this.name.valid && this.name.touched" class="invalid-feedback d-block">
+                        El nombre es obligatorio
+                    </small>
+                </div>
+                <div class="form-group">
+                    <label for="surname">{{ this.apppat }}</label>
+                    <input type="text" name="surname" #surname="ngModel" [(ngModel)]="this.user.surname" class="form-control" placeholder="Apellido paterno" required pattern="[a-zA-Z]+">
+                    <small *ngIf="!this.surname.valid && this.surname.touched" class="invalid-feedback d-block">
+                        El Apellido paterno es obligatorio
+                    </small>
+                </div>
+                <div class="form-group">
+                    <label for="lastname">{{ this.apmat}}</label>
+                    <input type="text" name="lastname" #lastname="ngModel" [(ngModel)]="this.user.lastname" class="form-control" placeholder="Apellido materno" required pattern="[a-zA-Z]+">
+                    <small *ngIf="!this.lastname.valid && this.lastname.touched" class="invalid-feedback d-block">
+                        El Apellido materno es obligatorio
+                    </small>
+                </div>
+                <div class="form-group">
+                    <label for="email">{{ this.labelEmail }}</label>
+                    <input type="email" name="email" #email="ngModel" [(ngModel)]="this.user.email" class="form-control" placeholder="Correo electronico" required  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                    <small *ngIf="!this.email.valid && this.email.touched" class="invalid-feedback d-block">
+                        El correo electronico es obligatorio
+                    </small>
+                </div>    
+                <div class="form-group">
+                    <label for="desc">{{ this.desc }}</label>
+                    <textarea [froalaEditor] name="description" #description="ngModel" [(ngModel)]="this.user.description" [(froalaModel)]="this.user.description"cols="30" rows="10" class="form-control" placeholder="Descripcion del usuario"></textarea>   
+                </div>
+                <div class="form-group">
+                    <label for="email">{{ this.images }}</label>
+                    <angular-file-uploader
+                            [config]="afuConfig"
+                            [resetUpload]="resetVar"
+                            (ApiResponse)="avatarUpload($event)">
+                    </angular-file-uploader>
+                </div>   
+                <input type="submit" class="btn btn-primary btn-block" value="{{ this.EnterUpdate }}" [disabled]="this.updateForm.invalid">
+            </form>
+        </div>
+    </div>
+</div>

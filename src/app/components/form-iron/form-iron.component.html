@@ -1,0 +1,101 @@
+<div class="card">
+    <div class="card-header">
+        <div class="card-title">
+            <h2 class="text-center">{{ this.title_page }}</h2>
+            <p class="text-center">{{ this.parrafo }}</p>
+        </div>
+    </div>
+    <div class="card-body">
+        <form #registerIron="ngForm" (ngSubmit)="onSubmit(registerIron)">
+              <div class="form-group">
+                <label for="person_id">{{ this.labelperson }}</label>
+                <select name="person_id" class="form-control p-2" #person_id="ngModel" [(ngModel)]="this.iron.person_id" required="">
+                    <option *ngFor="let persona of personArray" value="{{ persona.id }}">{{ persona.name }} {{ persona.surname }} {{ persona.lastname }}</option>
+                </select>
+                <small *ngIf="!this.person_id.valid && this.person_id.touched" class="invalid-feedback d-block">
+                    Seleccione ala persona es obligatorio
+                </small>
+              </div>
+              <div class="form-group">
+                <label for="iron_type_id">{{ this.labeltypeIron }}</label>
+                <select name="iron_type_id" #iron_type_id="ngModel" [(ngModel)]="this.iron.iron_type_id" class="form-control p-2" required="">
+                    <option *ngFor="let types of irontype" value="{{ types.id }}">{{ types.name }}</option>
+                </select>
+                <small *ngIf="!this.iron_type_id.valid && this.iron_type_id.touched" class="invalid-feedback d-block">
+                    Seleccione el tipo de fierro es obligatorio
+                </small>
+              </div>
+              <div class="form-group">
+                <label for="high_iron_id">{{ this.labelhighIron }}</label>
+                <select name="high_iron_id" #high_iron_id="ngModel" [(ngModel)]="this.iron.high_iron_id" class="form-control p-2" required="">
+                    <option *ngFor="let high of highArray" value="{{ high.id }}">folio del fierro.-{{ high.invoice }} pago.-{{ high.amount }}</option>
+                </select>
+                <small *ngIf="!this.high_iron_id.valid && this.high_iron_id.touched" class="invalid-feedback d-block">
+                    Seleccione el Pago del fierro
+                </small>
+              </div>
+              <div class="form-group">
+                <label for="name">{{ this.labelName }}</label>
+                <input type="text" class="form-control" name="name" #name="ngModel" [(ngModel)]="this.iron.name" placeholder="Nombre" required>
+                <small *ngIf="!this.name.valid && this.name.touched" class="invalid-feedback d-block">
+                    El nombre del fierro es obligatorio
+                </small>
+              </div>
+              <div class="form-group">
+                <label for="num_iron">{{ this.labelnumFierro }}</label>
+                <input type="text" class="form-control" name="num_iron" #num_iron="ngModel" [(ngModel)]="this.iron.num_iron" placeholder="Numero de fierro" required>
+                <small *ngIf="!this.num_iron.valid && this.num_iron.touched" class="invalid-feedback d-block">
+                    El numero de fierro es obligatorio
+                </small>
+              </div>
+              <div class="form-group">
+                <label for="brand">{{ this.labelbrand }}</label>
+                <input type="text" class="form-control" name="brand" #brand="ngModel" [(ngModel)]="this.iron.brand" placeholder="Marca del fierro" required>
+                <small *ngIf="!this.brand.valid && this.brand.touched" class="invalid-feedback d-block">
+                    La marca del fierro es obligatorio
+                </small>
+              </div>
+              <div class="form-group">
+                <label for="num_library">{{ this.labelnumlibrary}}</label>
+                <input type="number" class="form-control" name="num_library" #num_library="ngModel" [(ngModel)]="this.iron.num_library" placeholder="Numero de libro" required>
+                <small *ngIf="!this.num_library.valid && this.num_library.touched" class="invalid-feedback d-block">
+                    El numero de libro es obligatorio
+                </small>
+              </div>
+              <div class="form-group">
+                <label for="num_foja">{{ this.labelnumfoja }}</label>
+                <input type="number" class="form-control" name="num_foja" #num_foja="ngModel" [(ngModel)]="this.iron.num_foja" placeholder="Numero de foja" required>
+                <small *ngIf="!this.num_foja.valid && this.num_foja.touched" class="invalid-feedback d-block">
+                    El numero de foja es obligatorio
+                </small>
+              </div>
+              <div class="form-group">
+                <label for="image">{{ this.labelimage }}</label>
+                <angular-file-uploader
+                    [config]="afuConfig"
+                    [resetUpload]="resetVar"
+                    (ApiResponse)="imageUpload($event)">
+                </angular-file-uploader>
+              </div>
+              <div class="form-group">
+                <label for="year">{{ this.labelyear }}</label>
+                <input type="number" class="form-control" name="year" #year="ngModel" [(ngModel)]="this.iron.year" placeholder="Año" required>
+                <small *ngIf="!this.year.valid && this.year.touched" class="invalid-feedback d-block">
+                    El año del fierro es obligatorio
+                </small>
+              </div>
+              <div class="form-group">
+                <label for="validity">{{ this.labelvalidity }}</label>
+                <input type="text" class="form-control" name="validity" #validity="ngModel" [(ngModel)]="this.iron.validity" placeholder="Validez del fierro" required>
+                <small *ngIf="!this.validity.valid && this.validity.touched" class="invalid-feedback d-block">
+                    La validez del fierro es obligatorio
+                </small>
+              </div>
+              <div class="form-group">
+                <label for="limit">{{ this.limit }}</label>
+                <input type="text" class="form-control" name="limite" #limite="ngModel" [(ngModel)]="this.iron.limite" placeholder="Vigencia">
+              </div>
+              <input type="submit" class="btn btn-primary btn-block" value="{{ this.EnterIron }}" [disabled]="this.registerIron.invalid">
+        </form>
+    </div>
+</div>

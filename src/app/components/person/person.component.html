@@ -1,0 +1,173 @@
+<ng-sidebar-container>
+    <!--sidebar-->
+    <ng-sidebar [(opened)]="this.opened">
+        <div class="text-justify mt-2 ml-4">
+          <h3 title="menu">{{ this.menu }}</h3>
+            <button class="btn btn-primary" (click)="toggleSidebar()">{{ this.cerrar }}</button>
+        </div>
+        <ul class="nav flex-column mt-2 text-justify">
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/person" (click)="toggleSidebar()">{{ this.person }}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/property" (click)="toggleSidebar()">{{ this.property }}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/iron" (click)="toggleSidebar()">{{ this.iron }}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/exploitation-type" (click)="toggleSidebar()">{{ this.exploitation }}</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/type-tenencia" (click)="toggleSidebar()">{{ this.tenencia }}</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/iron-type" (click)="toggleSidebar()">{{ this.type_iron }}</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" routerLink="/users" (click)="toggleSidebar()">{{ this.users}}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" routerLink="/roles-users" (click)="toggleSidebar()">{{ this.roles }}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" routerLink="/generate_report" (click)="toggleSidebar()">{{ this.report }}</a>
+            </li>
+        </ul>
+    </ng-sidebar>
+    <div ng-sidebar-content>
+        <!--page content-->  
+        <div class="container mt-4">
+          <div class="row">
+            <div class="col-md-3">
+              <button class="btn btn-primary mt-2 ml-2" (click)="toggleSidebar()">{{ this.open }}</button>
+              <div class="alert alert-success mt-2" *ngIf="this.status == 'success'" role="alert">
+                <p class="text-left">
+                   {{ this.parrafoLink }} 
+                  <a routerLink="/high-alta">{{ this.property_iron }}</a>
+                </p>
+              </div>
+            </div>
+            <div class="col-md-9">
+              <a class="btn btn-info" routerLink="/list-person-information">{{ this.information_person }}</a>
+              <div class="card mt-3">
+                <div class="card-header">
+                  <div class="card-title">
+                    <h2 class="text-center">{{ this.title_page }}</h2>
+                      <p class="text-center">{{ this.parrafo }}</p>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <form #registerPersonForm="ngForm" (ngSubmit)="onSubmit(registerPersonForm)">
+                    <div class="form-group">
+                      <label for="nom">{{ this.labelname }}</label>
+                      <input type="text" class="form-control" name="name" #name="ngModel" [(ngModel)]="this.persona.name" placeholder="Nombre" required="" pattern="[a-zA-Z]+">
+                      <small *ngIf="!this.name.valid && this.name.touched" class="invalid-feedback d-block">
+                        Su nombre es Obligatorio
+                      </small>
+                    </div>
+                    <div class="form-group">
+                      <label for="appat">{{ this.appat }}</label>
+                      <input type="text" class="form-control" name="surname" #surname="ngModel" [(ngModel)]="this.persona.surname" placeholder="Apellido Paterno" required="" pattern="[a-zA-Z]+">
+                      <small *ngIf="!this.surname.valid && this.surname.touched" class="invalid-feedback d-block">
+                        El Apellido Paterno es Obligatorio
+                      </small>
+                    </div>
+                    <div class="form-group">
+                      <label for="apmat">{{ this.apmat }}</label>
+                      <input type="text" class="form-control" name="lastname" #lastname="ngModel" [(ngModel)]="this.persona.lastname" placeholder="Apellido Materno" required="" pattern="[a-zA-Z]+">
+                      <small *ngIf="!this.lastname.valid && this.lastname.touched" class="invalid-feedback d-block">
+                        El Apellido Materno es Obligatorio
+                      </small>
+                    </div>
+                    <div class="form-group">
+                      <label for="desc">{{ this.labeldescription }}</label>
+                      <textarea [froalaEditor]="options_froala" class="form-control" name="description" #description="ngModel" [(ngModel)]="this.persona.description" [(froalaModel)]="this.persona.description" placeholder="Descripción de la persona" cols="30" rows="10"></textarea>
+                    </div>
+                    <div class="form-group">
+                      <label for="state_id">{{ this.labelState }}</label>
+                      <select name="state_id" #state_id="ngModel" [(ngModel)]="this.persona.state_id" class="form-control p-2" required="">
+                        <option *ngFor="let state of arrayState" value="{{ state.id }}">{{ state.name }}</option>
+                      </select>
+                      <small *ngIf="!this.state_id.valid && this.state_id.touched" class="invalid-feedback d-block">
+                        El Estado es obligatorio
+                      </small>
+                    </div>
+                    <!-- 
+                    <div class="form-group">
+                      <label for="id_municipalitie">{{ this.labelmuni }}</label>
+                      <select name="id_municipalitie" class="form-control" (ngChange)="getStateMunicipality($event)">
+                        <option *ngFor="let muni of listMuni" value="{{ muni.id }}">{{ muni.name }}</option>
+                      </select>
+                    </div>-->
+                    <!--Municipios y localidades-->
+                    <div class="form-group">
+                      <label for="code">{{ this.labelpostal }}</label>
+                      <input type="text" class="form-control" name="code_postal" #code_postal="ngModel" [(ngModel)]="this.persona.code_postal" placeholder="Codigo Postal" required="">
+                      <small *ngIf="!this.code_postal.valid && this.code_postal.touched" class="invalid-feedback d-block">
+                        El codigo postal es obligatorio
+                      </small>
+                    </div>
+                    <div class="form-group">
+                      <label for="curp">{{ this.labelCurp }}</label>
+                      <input type="text" class="form-control" name="curp" #curp="ngModel" [(ngModel)]="this.persona.curp" placeholder="Curp" required="">
+                      <small *ngIf="!this.curp.valid && this.curp.touched" class="invalid-feedback d-block">
+                        La curp es obligatoria
+                      </small>
+                    </div>
+                    <div class="form-group">
+                      <label for="rfc">{{ this.labelRfc }}</label>
+                      <input type="text" class="form-control" name="rfc" #rfc="ngModel" [(ngModel)]="this.persona.rfc" placeholder="RFC" required="">
+                      <small *ngIf="!this.rfc.valid && this.rfc.touched" class="invalid-feedback d-block">
+                        El rfc es obligatorio
+                      </small>
+                    </div>
+                    <div class="form-group">
+                      <label for="ine">{{ this.labeline }}</label>
+                      <input type="text" class="form-control" name="ine" #ine="ngModel" [(ngModel)]="this.persona.ine" placeholder="INE" required="">
+                      <small *ngIf="!this.ine.valid && this.ine.touched" class="invalid-feedback d-block">
+                        El Ine es Obligatorio
+                      </small>
+                    </div>
+                    <div class="form-group">
+                      <label for="age">{{ this.labelage }}</label>
+                      <input type="number" class="form-control" name="age" #age="ngModel" [(ngModel)]="this.persona.age" placeholder="Edad de la persona" required="">
+                      <small *ngIf="!this.age.valid && this.age.touched" class="invalid-feedback d-block">
+                        La edad es obligatoria
+                      </small>
+                    </div>
+                    <div class="form-group">
+                      <label for="image">{{ this.labelimage }}</label>
+                      <angular-file-uploader
+                                [config]="afuConfig"
+                                [resetUpload]="resetVar"
+                                (ApiResponse)="imageUpload($event)">
+                      </angular-file-uploader>
+                      
+                    </div>
+                    <div class="form-group">
+                      <label for="phone">{{ this.labelphone }}</label>
+                      <input type="text" class="form-control" name="phone" #phone="ngModel" [(ngModel)]="this.persona.phone" placeholder="Telefono" required="">
+                      <small *ngIf="!this.phone.valid && this.phone.touched" class="invalid-feedback d-block">
+                        El Telefono de la persona es obligatoria
+                      </small>
+                    </div>
+                    <div class="form-group">
+                      <label for="email">{{ this.labelemail }}</label>
+                      <input type="email" class="form-control" name="email" #email="ngModel" [(ngModel)]="this.persona.email" placeholder="Correo electronico" required  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                      <small *ngIf="!this.email.valid && this.email.touched" class="invalid-feedback d-block">
+                        El correo electronico es obligatorio
+                      </small>
+                    </div>
+                    <input type="submit" class="btn btn-primary btn-block" value="{{ this.EnterPerson }}" [disabled]="this.registerPersonForm.invalid">
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> 
+    </div>
+</ng-sidebar-container>
+
+
+

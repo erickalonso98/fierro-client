@@ -1,0 +1,80 @@
+<div class="card">
+    <div class="card-header">
+        <div class="card-title">
+            <h2 class="text-center">{{ this.title_page }}</h2>
+            <p class="text-center">{{ this.parrafo }}</p>
+        </div>
+    </div>
+    <div class="card-body">
+        <form #registerProperty="ngForm" (ngSubmit)="onSubmit(registerProperty)">
+            <div class="form-group">
+                <label for="name">{{ this.labelpredio }}</label>
+                <input type="text" class="form-control" name="name" #name="ngModel" [(ngModel)]="this.property.name" placeholder="Nombre" required="">
+                <small *ngIf="!this.name.valid && this.name.touched" class="invalid-feedback d-block">
+                    El nombre del predio es obligatorio
+                </small>
+            </div>
+            <div class="form-group">
+                <label for="person_id">{{ this.labelPerson }}</label>
+                <select class="form-control p-2" name="person_id" #person_id="ngModel" [(ngModel)]="this.property.person_id" required="">
+                    <option *ngFor="let person of personsArray" value="{{ person.id }}">{{ person.name }} {{ person.surname }} {{ person.lastname }}</option>
+                </select>
+                <small *ngIf="!this.person_id.valid && this.person_id.touched" class="invalid-feedback d-block">
+                    La persona es obligatorio
+                </small>
+            </div>
+            <div class="form-group">
+                <label for="exploitation_type_id">{{ this.labelexploitation }}</label>
+                <select class="form-control p-2" name="exploitation_type_id" #exploitation_type_id="ngModel" [(ngModel)]="this.property.exploitation_type_id" required="">
+                    <option *ngFor="let exploitation of exploitationsArray" value="{{ exploitation.id }}">{{ exploitation.name }}</option>
+                </select>
+                <small *ngIf="!this.exploitation_type_id.valid && this.exploitation_type_id.touched" class="invalid-feedback d-block">
+                    El Tipo de explotacion es obligatorio
+                </small>
+            </div>
+            <div class="form-group">
+                <label for="type_tenencia_id">{{ this.labeltenencia }}</label>
+                <select class="form-control p-2" name="type_tenencia_id" #type_tenencia_id="ngModel" [(ngModel)]="this.property.type_tenencia_id" required="">
+                    <option *ngFor="let tenencia of tenenciaArray" value="{{ tenencia.id }}">{{ tenencia.name }}</option>
+                </select>
+                <small *ngIf="!this.type_tenencia_id.valid && this.type_tenencia_id.touched" class="invalid-feedback d-block">
+                    El tipo de tenencia es obligatorio
+                </small>
+            </div>
+            <div class="form-group">
+                <label for="image">{{ this.labelimage }}</label>
+                <angular-file-uploader
+                    [config]="afuConfig"
+                    [resetUpload]="resetVar"
+                    (ApiResponse)="imageUpload($event)">
+                </angular-file-uploader>
+            </div>
+            <div class="form-group">
+                <label for="description">{{ this.labeldescription }}</label>
+                <textarea [froalaEditor] name="description" #description="ngModel" [(ngModel)]="this.property.description" class="form-control" placeholder="Descripcion del predio" required="" cols="30" rows="10"></textarea>
+                <small *ngIf="!this.description.valid && this.description.touched" class="invalid-feedback d-block">
+                    La descripcion de la tenencia de la tierra es obligatorio
+                </small>
+            </div>
+            <div class="form-group">
+                <label for="num_parcelas">{{ this.labelparcelas }}</label>
+                <input type="text" class="form-control" name="num_parcelas" #num_parcelas="ngModel" [(ngModel)]="this.property.num_parcelas" placeholder="numero de parcelas" required="">
+                <small *ngIf="!this.num_parcelas.valid && this.num_parcelas.touched" class="invalid-feedback d-block">
+                    El numero de parcelas es obligatorio
+                </small>
+            </div>
+            <div class="form-group">
+                <label for="alta_padron">{{ this.labelpadron }}</label>
+                <input type="date" class="form-control" name="alta_padron" #alta_padron="ngModel" [(ngModel)]="this.property.alta_padron">
+            </div>
+            <div class="form-group">
+                <label for="type_superficie">{{ this.labeltypesuperficie }}</label>
+                <input type="text" class="form-control" name="type_superficie" #type_superficie="ngModel" [(ngModel)]="this.property.type_superficie" placeholder="tipo de superficie" required="">
+                <small *ngIf="!this.type_superficie.valid && this.type_superficie.touched" class="invalid-feedback d-block">
+                    El tipo de superficie es obligatorio
+                </small>
+            </div>
+            <input type="submit" class="btn btn-primary btn-block" value="{{ this.Enter }}" [disabled]="this.registerProperty.invalid">
+        </form>
+    </div>
+</div>

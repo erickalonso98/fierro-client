@@ -1,0 +1,18 @@
+<table class="table table-striped text-center">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Creación</th>
+        <th scope="col">Actualización</th>
+      </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let t of tenencias">
+      <th scope="row">{{ t.id }}</th>
+      <td>{{ t.name }}</td>
+      <td>{{ t.created_at }}</td>
+      <td>{{ t.updated_at }}</td>
+    </tr>
+  </tbody>
+</table>

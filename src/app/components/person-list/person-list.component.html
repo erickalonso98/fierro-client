@@ -1,0 +1,80 @@
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido paterno</th>
+            <th scope="col">Apellido materno</th>
+            <th scope="col">Descripción</th>
+            <th scope="col">Estado</th>
+            <th scope="col">Codigo postal</th>
+            <th scope="col">Curp</th>
+            <th scope="col">Rfc</th>
+            <th scope="col">Ine</th>
+            <th scope="col">Edad</th>
+            <th scope="col">Imagen</th>
+            <th scope="col">Telefono</th>
+            <th scope="col">Correo</th>
+            <th scope="col">{{ this.options }}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let personas of personData">
+            <th scope="row">{{ personas.id }}</th>
+            <th>{{ personas.name }}</th>
+            <th>{{ personas.surname }}</th>
+            <th>{{ personas.lastname }}</th>
+            <th>{{ personas.description }}</th>
+            <th>{{ personas.state_id }}</th>
+            <th>{{ personas.code_postal }}</th>
+            <th>{{ personas.curp }}</th>
+            <th>{{ personas.rfc }}</th>
+            <th>{{ personas.ine }}</th>
+            <th>{{ personas.age }}</th>
+            <th>
+                <div *ngIf="personas.image">
+                    <img src="{{ this.url+'person/image/'+personas.image }}" alt="" class="w-100">
+                </div>
+                
+                <div *ngIf="!personas.image">
+                    <img src="https://via.placeholder.com/50x50" alt="">
+                </div>
+            </th>
+            <th>{{ personas.phone }}</th>
+            <th>{{ personas.email }}</th>
+            <th>
+                <a [routerLink]="['/person-detail',personas.id]" class="btn btn-success w-100">Leer</a>
+                <span *ngIf="this.identity && this.identity.sub == personas.user_id">
+                <a [routerLink]="['/person-edit',personas.id]" class="btn btn-warning w-100 mt-2">Editar</a>
+                    <button type="button" class="btn btn-danger mt-2" data-toggle="modal" [attr.data-target]="'#myModal'+personas.id">
+                        Eliminar
+                      </button>
+                      <!-- The Modal -->
+                      <div class="modal" id="{{ 'myModal'+personas.id }}">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                      
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                              <h4 class="modal-title">¿Seguro que quieres eliminar a esta persona?</h4>
+                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                      
+                            <!-- Modal body -->
+                            <div class="modal-body">
+                              <p>Eliminar definitivamente a {{ personas.name }} {{ personas.surname }} {{ personas.lastname }} con su fierro y predio</p>
+                            </div>
+                      
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+                                <a (click)="deletePerson(personas.id)" [ngStyle]="{'color':'#fff'}" class="close" data-dismiss="modal" class="btn btn-danger">Eliminar</a>
+                              <button type="button" class="btn btn-warning" data-dismiss="modal">Cerrar</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                </span>
+            </th>
+        </tr>
+    </tbody>
+</table>

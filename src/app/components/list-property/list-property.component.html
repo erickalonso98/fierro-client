@@ -1,0 +1,35 @@
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Tipo de explotación</th>
+        <th scope="col">Tipo de tenencia</th>
+        <th scope="col">Imagen</th>
+        <th scope="col">Descripción</th>
+        <th scope="col">Num. parcelas</th>
+        <th scope="col">Tipo de superficie</th>
+        <th scope="col">Alta padron</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let property of dataProperty">
+        <th scope="row">{{ property.id }}</th>
+        <td>{{ property.name }}</td>
+        <td>{{ property.exploitation.name }}</td>
+        <td>{{ property.tenencia.name }}</td>
+        <td>
+            <div *ngIf="property.image">
+                <img class="rounded mx-auto d-block" src="{{ this.url+'property/image/'+property.image }}" width="100px" height="100px" alt="predio">
+            </div>
+            <div *ngIf="!property.image">
+                <img src="https://via.placeholder.com/50x50" alt="predio">
+            </div>
+        </td>
+        <td [innerHTML]>{{ property.description }}</td>
+        <td>{{ property.num_parcelas }}</td>
+        <td>{{ property.type_superficie }}</td>
+        <td>{{ property.created_at }}</td>
+      </tr>
+    </tbody>
+  </table>

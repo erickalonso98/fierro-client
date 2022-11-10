@@ -1,0 +1,29 @@
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellido paterno</th>
+        <th scope="col">Apellido materno</th>
+        <th scope="col">Correo electronico</th>
+        <th scope="col">Imagen</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let users of dataArray">
+        <th scope="row">{{ users.id }}</th>
+        <td>{{ users.name }}</td>
+        <td>{{ users.surname }}</td>
+        <td>{{ users.lastname }}</td>
+        <td>{{ users.email }}</td>
+        <td>
+            <div *ngIf="users.image">
+                <img class="rounded mx-auto d-block" src="{{ this.url+'user/avatar/'+users.image }}" width="100px" height="100px" alt="usuario">
+            </div>
+            <div *ngIf="!users.image">
+                <img src="https://via.placeholder.com/50x50" alt="">
+            </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>

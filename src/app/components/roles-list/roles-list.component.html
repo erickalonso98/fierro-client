@@ -1,0 +1,18 @@
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Creación</th>
+        <th scope="col">Modificación</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let roles of datarole">
+        <th scope="row">{{ roles.id }}</th>
+        <td>{{ roles.name }}</td>
+        <td>{{ roles.created_at }}</td>
+        <td>{{ roles.updated_at }}</td>
+      </tr>
+    </tbody>
+  </table>

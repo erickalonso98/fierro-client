@@ -1,0 +1,164 @@
+<ng-sidebar-container>
+    <!--sidebar-->
+    <ng-sidebar [(opened)]="this.opened">
+        <div class="text-justify mt-2 ml-4">
+          <h3 title="menu">{{ this.menu }}</h3>
+            <button class="btn btn-primary" (click)="toggleSidebar()">{{ this.cerrar }}</button>
+        </div>
+        <ul class="nav flex-column mt-2 text-justify">
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/person" (click)="toggleSidebar()">{{ this.person }}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/property" (click)="toggleSidebar()">{{ this.property }}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/iron" (click)="toggleSidebar()">{{ this.iron }}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/exploitation-type" (click)="toggleSidebar()">{{ this.exploitation }}</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/type-tenencia" (click)="toggleSidebar()">{{ this.tenencia }}</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/iron-type" (click)="toggleSidebar()">{{ this.type_iron }}</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" routerLink="/users" (click)="toggleSidebar()">{{ this.users}}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" routerLink="/roles-users" (click)="toggleSidebar()">{{ this.roles }}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" routerLink="/generate_report" (click)="toggleSidebar()">{{ this.report }}</a>
+            </li>
+        </ul>
+    </ng-sidebar>
+    <div ng-sidebar-content>
+        <!--page content-->
+        <button class="btn btn-primary mt-2 ml-2" (click)="toggleSidebar()">{{ this.open }}</button>
+        <div class="container mt-3 p-3">
+          <div class="row">
+            <div class="col-md-2">
+              <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">
+                reporte x ine
+              </button>
+              
+              <!-- The Modal -->
+              <div class="modal" id="myModal">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+              
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                      <h4 class="modal-title">Modal Heading</h4>
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+              
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                      Modal body..
+                    </div>
+              
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+              
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal">
+                reporte x curp
+              </button>
+              
+              <!-- The Modal -->
+              <div class="modal" id="myModal">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+              
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                      <h4 class="modal-title">Modal Heading</h4>
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+              
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                      Modal body..
+                    </div>
+              
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">
+                reporte x rfc
+              </button>
+              
+              <!-- The Modal -->
+              <div class="modal" id="myModal">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+              
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                      <h4 class="modal-title">Modal Heading</h4>
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+              
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                      Modal body..
+                    </div>
+              
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <button type="button" class="btn btn-dark mt-2" data-toggle="modal" data-target="#myModal">
+              reporte x nombre
+            </button>
+            
+            <!-- The Modal -->
+            <div class="modal" id="myModal">
+              <div class="modal-dialog">
+                <div class="modal-content">
+            
+                  <!-- Modal Header -->
+                  <div class="modal-header">
+                    <h4 class="modal-title">Modal Heading</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+            
+                  <!-- Modal body -->
+                  <div class="modal-body">
+                    Modal body..
+                  </div>
+            
+                  <!-- Modal footer -->
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                  </div>
+            
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+</ng-sidebar-container>

@@ -1,0 +1,41 @@
+<a routerLink="/list-person-information" class="btn btn-info mt-3 ml-2">regresar</a>
+<div class="container mt-5">
+    <div class="col-md-12" *ngIf="!this.person && !this.iron && !this.property && !this.state">
+        Cargando...
+    </div>
+    
+    <div class="col-md-12" *ngIf="this.person && this.iron && this.property && this.state">
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">
+                    <h2 class="text-center">{{ this.informations }}</h2>
+                </div>
+            </div>
+            <div class="card-body">
+               <img class="rounded mx-auto d-block " width="150px" height="150px" src="{{ this.url+'person/image/'+this.person.image }}" alt="persona">
+               <h5 class="text-center mt-2">Identificador: {{ person.id }}</h5>
+               <h5 class="text-center mt-2">Nombre: {{ person.name }}</h5>
+               <h5 class="text-center mt-2">Apellido paterno: {{ person.surname }}</h5>
+               <h5 class="text-center mt-2">Apellido materno: {{ person.lastname }}</h5>
+               <h5 class="text-center mt-2">Estado: {{ person.state.name }}</h5>
+               <h5 class="text-center mt-2">Codigo postal:{{ person.code_postal }}</h5>
+               <h5 class="text-center mt-2">Curp:{{ person.curp }}</h5>
+               <h5 class="text-center mt-2">Rfc:{{ person.rfc }}</h5>
+               <h5 class="text-center mt-2">Ine:{{ person.ine }}</h5>
+               <h5 class="text-center mt-2">Edad:{{ person.age }}</h5>
+               <h5 class="text-center mt-2">Telefono:{{ person.phone }}</h5>
+               <h5 class="text-center mt-2">Correo:{{ person.email }}</h5>
+               <hr>
+               <h3 class="text-center">{{ this.textiron }}</h3>
+               <img class="rounded mx-auto d-block " width="150px" height="150px" src="{{ this.url+'iron/image/'+person.iron.image }}" alt="persona">
+               <h5 class="text-center mt-2">Nombre del fierro: {{ person.iron.name }}</h5>
+               <hr>
+               <h3 class="text-center">{{ this.textproperty }}</h3>
+               <img class="rounded mx-auto d-block" width="200px" height="200px" src="{{ this.url+'property/image/'+person.property.image }}" alt="">
+               <h5 class="text-center mt-2">Nombre del predio: {{ person.property.name }}</h5>
+               <p [innerHtml]="" class="text-center mt-2">Descripción: {{ person.property.description }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
