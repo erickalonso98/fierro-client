@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PdfMakeWrapper,Txt } from 'pdfmake-wrapper';
 
 @Component({
   selector: 'app-ine-report-form',
@@ -10,6 +11,16 @@ export class IneReportFormComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  public generatePDF(){
+    const pdf = new PdfMakeWrapper();
+
+    pdf.add(
+      new Txt('Hello world').bold().italics().end
+    );
+
+    pdf.create().open();
   }
 
 }
