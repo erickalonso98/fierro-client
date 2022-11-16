@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PdfMakeWrapper,Txt } from 'pdfmake-wrapper';
+import { PersonService } from 'src/app/services/person.service';
+import { Person } from 'src/app/models/person';
 
 @Component({
   selector: 'app-ine-report-form',
