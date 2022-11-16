@@ -13,7 +13,7 @@ export class IneReportFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public generatePDF(){
+  public generateTestPDF(){
     const pdf = new PdfMakeWrapper();
 
     pdf.add(
@@ -22,5 +22,6 @@ export class IneReportFormComponent implements OnInit {
 
     pdf.create().open();
   }
+  
 
 }
