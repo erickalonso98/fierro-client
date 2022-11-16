@@ -41,7 +41,19 @@ export class IneReportFormComponent implements OnInit {
         if(response.status == 'success'){
           const pdf = new PdfMakeWrapper();
           pdf.add(
-            new Txt(response.person.name).alignment('center').bold().italics().end,
+            new Txt(response.person.name).alignment('center').bold().italics().end
+          );
+
+          pdf.add(
+            new Txt(response.person.surname).alignment('center').bold().italics().end
+          );
+
+          pdf.add(
+            new Txt(response.person.lastname).alignment('center').bold().italics().end
+          );
+
+          pdf.add(
+            new Txt(response.person.age).alignment('center').bold().italics().end
           );
 
           pdf.create().open();
