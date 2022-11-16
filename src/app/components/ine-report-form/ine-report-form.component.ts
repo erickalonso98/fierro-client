@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PdfMakeWrapper,Txt } from 'pdfmake-wrapper';
+import { Img, PdfMakeWrapper,Txt ,IImg} from 'pdfmake-wrapper';
 import { PersonService } from 'src/app/services/person.service';
 import { UserService } from 'src/app/services/user.service';
 import { Person } from 'src/app/models/person';
@@ -45,17 +45,17 @@ export class IneReportFormComponent implements OnInit {
           
           const pdf = new PdfMakeWrapper();
           pdf.add([
-            new Txt(response.person.id).alignment('center').bold().italics().end,
-            new Txt(response.person.name).alignment('center').bold().italics().end,
-            new Txt(response.person.surname).alignment('center').bold().italics().end,
-            new Txt(response.person.lastname).alignment('center').bold().italics().end,
-            new Txt(response.person.code_postal).alignment('center').bold().italics().end,
-            new Txt(response.person.curp).alignment('center').bold().italics().end,
-            new Txt(response.person.rfc).alignment('center').bold().italics().end,
-            new Txt(response.person.ine).alignment('center').bold().italics().end,
-            new Txt(response.person.age).alignment('center').bold().italics().end,
-            new Txt(response.person.phone).alignment('center').bold().italics().end,
-            new Txt(response.person.email).alignment('center').bold().italics().end,
+            new Txt('id:'+response.person.id).alignment('center').bold().italics().end,
+            new Txt('Nombre:'+response.person.name).alignment('center').bold().italics().end,
+            new Txt('Apellido paterno:'+response.person.surname).alignment('center').bold().italics().end,
+            new Txt('Apellido materno:'+response.person.lastname).alignment('center').bold().italics().end,
+            new Txt('Codigo postal:'+response.person.code_postal).alignment('center').bold().italics().end,
+            new Txt('Curp:'+response.person.curp).alignment('center').bold().italics().end,
+            new Txt('Rfc:'+response.person.rfc).alignment('center').bold().italics().end,
+            new Txt('Ine:'+response.person.ine).alignment('center').bold().italics().end,
+            new Txt('Edad:'+response.person.age).alignment('center').bold().italics().end,
+            new Txt('Telefono:'+response.person.phone).alignment('center').bold().italics().end,
+            new Txt('Correo Electronico:'+response.person.email).alignment('center').bold().italics().end,
           ]);
 
           pdf.create().open();
