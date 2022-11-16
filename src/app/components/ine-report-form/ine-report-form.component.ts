@@ -3,6 +3,7 @@ import { PdfMakeWrapper,Txt } from 'pdfmake-wrapper';
 import { PersonService } from 'src/app/services/person.service';
 import { UserService } from 'src/app/services/user.service';
 import { Person } from 'src/app/models/person';
+import { global } from 'src/app/services/global';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -12,6 +13,7 @@ import Swal from 'sweetalert2';
 })
 export class IneReportFormComponent implements OnInit {
 
+  public url:string;
   public persona:Person;
   public dataPerson:any;
 
@@ -19,6 +21,7 @@ export class IneReportFormComponent implements OnInit {
     private userService:UserService,
     private personService:PersonService
   ) {
+    this.url = global.url;
     this.persona = new Person(1,1,'','','','','',1,'','','','',1,'','','');
    }
 
