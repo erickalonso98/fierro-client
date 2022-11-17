@@ -20,6 +20,7 @@ import { RolesComponent } from "./components/roles/roles.component";
 import { SettingsComponent } from "./components/settings/settings.component";
 import { SuperAdminComponent } from "./components/super-admin/super-admin.component";
 import { TenenciaTypeComponent } from "./components/tenencia-type/tenencia-type.component";
+import { TypeExploitationDetailComponent } from "./components/type-exploitation-detail/type-exploitation-detail.component";
 import { UserComponent } from "./components/user/user.component";
 import { UsersComponent } from "./components/users/users.component";
 
@@ -46,6 +47,7 @@ const appRoutes:Routes = [
     {path:'roles-users',component:RolesComponent},
     {path:'person-edit/:id',component:PersonEditComponent},
     {path:'generate_report',component:ReportComponent},
+    {path:'exploitation-detail/:id',component:TypeExploitationDetailComponent},
     {path:'logout/:sure',component:LoginComponent},
     {path:'**',component:ErrorComponent}
 ];
