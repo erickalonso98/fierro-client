@@ -47,7 +47,7 @@ const appRoutes:Routes = [
     {path:'roles-users',component:RolesComponent},
     {path:'person-edit/:id',component:PersonEditComponent},
     {path:'generate_report',component:ReportComponent},
-    {path:'exploitation-detail/:id',component:TypeExploitationDetailComponent},
+    {path:'exploitation/:id',component:TypeExploitationDetailComponent},
     {path:'logout/:sure',component:LoginComponent},
     {path:'**',component:ErrorComponent}
 ];
