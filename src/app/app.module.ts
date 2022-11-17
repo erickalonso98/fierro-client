@@ -57,7 +57,8 @@ import { NameReportFormComponent } from './components/name-report-form/name-repo
 
 
 import { PdfMakeWrapper } from 'pdfmake-wrapper';
-import * as pdfFonts from "pdfmake/build/vfs_fonts"; // fonts provided for pdfmake
+import * as pdfFonts from "pdfmake/build/vfs_fonts";
+import { TypeExploitationDetailComponent } from './components/type-exploitation-detail/type-exploitation-detail.component'; // fonts provided for pdfmake
 
 // If any issue using previous fonts import. you can try this:
 // import pdfFonts from "pdfmake/build/vfs_fonts";
@@ -109,7 +110,8 @@ PdfMakeWrapper.setFonts(pdfFonts);
     IneReportFormComponent,
     RfcReportFormComponent,
     CurpReportFormComponent,
-    NameReportFormComponent
+    NameReportFormComponent,
+    TypeExploitationDetailComponent
   ],
   imports: [
     BrowserModule,
