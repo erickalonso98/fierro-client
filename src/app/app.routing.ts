@@ -55,7 +55,7 @@ const appRoutes:Routes = [
     {path:'tenencia-detail/:id',component:TenenciaDetailComponent},
     {path:'type-iron-detail/:id',component:TypeIronDetailComponent},
     {path:'iron-detail/:id',component:IronDetailComponent},
-    {path:'property-detail:/id',component:PropertyDetailComponent},
+    {path:'property-detail/:id',component:PropertyDetailComponent},
     {path:'logout/:sure',component:LoginComponent},
     {path:'**',component:ErrorComponent}
 ];
