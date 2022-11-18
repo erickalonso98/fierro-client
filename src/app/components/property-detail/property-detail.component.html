@@ -1,1 +1,24 @@
-<p>property-detail works!</p>
+<div *ngIf="!this.property">
+    Cargando...
+</div>
+<div class="card text-center mt-5">
+    <div class="card-header">
+      <h2>{{ this.page_title }}</h2>
+    </div>
+    <div class="card-body">
+      <!--<h5 class="card-title">Special title treatment</h5>
+      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>-->
+      <div *ngIf="this.property">
+        <img class="rounded mx-auto d-block" width="150px" height="150px" src="{{ this.url+'property/image/'+this.property.image }}" alt="predio">
+        <h5>Id:{{ this.property.id }}</h5>
+        <h5>Nombre:{{ this.property.name }}</h5>
+        <h5 [innerHTML]="">Descripción:{{ this.property.description }}</h5>
+        <h5>Numero de parcelas:{{ this.property.num_parcelas }}</h5>
+        <h5>Tipo de superficie:{{ this.property.type_superficie }}</h5>
+      </div>
+      <a routerLink="/property" class="btn btn-primary mt-3">Regresar</a>
+    </div>
+    <div class="card-footer text-muted">
+      Información del detalle del predio ganadero
+    </div>
+  </div>
