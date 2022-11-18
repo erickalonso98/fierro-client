@@ -60,7 +60,9 @@ import { PdfMakeWrapper } from 'pdfmake-wrapper';
 import * as pdfFonts from "pdfmake/build/vfs_fonts";
 import { TypeExploitationDetailComponent } from './components/type-exploitation-detail/type-exploitation-detail.component';
 import { IronDetailComponent } from './components/iron-detail/iron-detail.component';
-import { PropertyDetailComponent } from './components/property-detail/property-detail.component'; // fonts provided for pdfmake
+import { PropertyDetailComponent } from './components/property-detail/property-detail.component';
+import { TenenciaDetailComponent } from './components/tenencia-detail/tenencia-detail.component';
+import { TypeIronDetailComponent } from './components/type-iron-detail/type-iron-detail.component'; // fonts provided for pdfmake
 
 // If any issue using previous fonts import. you can try this:
 // import pdfFonts from "pdfmake/build/vfs_fonts";
@@ -115,7 +117,9 @@ PdfMakeWrapper.setFonts(pdfFonts);
     NameReportFormComponent,
     TypeExploitationDetailComponent,
     IronDetailComponent,
-    PropertyDetailComponent
+    PropertyDetailComponent,
+    TenenciaDetailComponent,
+    TypeIronDetailComponent
   ],
   imports: [
     BrowserModule,
