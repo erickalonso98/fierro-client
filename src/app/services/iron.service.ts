@@ -32,4 +32,10 @@ export class IronService {
     return this._http.post(this.url+'iron',params,{headers});
 
   }
+
+  public getIron(id):Observable<any>{
+    let headers = new HttpHeaders().set('Content-Type','application/x-www-form-urlencoded');
+    return this._http.get(this.url+'iron/'+id,{headers});
+  }
+
 }

@@ -4,6 +4,7 @@ import { global } from './global';
 import { Observable } from 'rxjs';
 import { Property } from '../models/property';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -29,6 +30,11 @@ export class PropertyService {
                                      .set('Authorization',token);
 
       return this._http.post(this.url+'property',params,{headers});
+   }
+
+   public getProperty(id):Observable<any>{
+    let headers = new HttpHeaders().set('Content-Type','application/x-www-form-urlencoded');
+    return this._http.get(this.url+'property/'+id,{headers});
    }
 
 }
