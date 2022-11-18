@@ -5,6 +5,7 @@ import { DetailComponent } from "./components/detail/detail.component";
 import { ErrorComponent } from "./components/error/error.component";
 import { ExploitationTypeComponent } from "./components/exploitation-type/exploitation-type.component";
 import { HighAltaComponent } from "./components/high-alta/high-alta.component";
+import { IronDetailComponent } from "./components/iron-detail/iron-detail.component";
 import { IronTypeComponent } from "./components/iron-type/iron-type.component";
 import { IronComponent } from "./components/iron/iron.component";
 import { LoginComponent } from "./components/login/login.component";
@@ -12,6 +13,7 @@ import { PersonDetailComponent } from "./components/person-detail/person-detail.
 import { PersonEditComponent } from "./components/person-edit/person-edit.component";
 import { PersonInformationComponent } from "./components/person-information/person-information.component";
 import { PersonComponent } from "./components/person/person.component";
+import { PropertyDetailComponent } from "./components/property-detail/property-detail.component";
 import { PropertyIronComponent } from "./components/property-iron/property-iron.component";
 import { PropertyComponent } from "./components/property/property.component";
 import { RegisterComponent } from "./components/register/register.component";
@@ -48,6 +50,8 @@ const appRoutes:Routes = [
     {path:'person-edit/:id',component:PersonEditComponent},
     {path:'generate_report',component:ReportComponent},
     {path:'exploitation/:id',component:TypeExploitationDetailComponent},
+    {path:'iron-detail/:id',component:IronDetailComponent},
+    {path:'property-detail:/id',component:PropertyDetailComponent},
     {path:'logout/:sure',component:LoginComponent},
     {path:'**',component:ErrorComponent}
 ];
