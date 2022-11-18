@@ -1,1 +1,28 @@
-<p>iron-detail works!</p>
+<div *ngIf="!this.iron">
+    Cargando...
+</div>
+<div class="card text-center mt-5">
+    <div class="card-header">
+      <h2>{{ this.page_title }}</h2>
+    </div>
+    <div class="card-body">
+      <!--<h5 class="card-title">Special title treatment</h5>
+      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>-->
+      <div *ngIf="this.iron">
+        <img class="rounded mx-auto d-block " width="150px" height="150px" src="{{ this.url+'iron/image/'+this.iron.image }}" alt="fierro" >
+        <h5>id:{{ this.iron.id }}</h5>
+        <h5>Nombre:{{ this.iron.name }}</h5>
+        <h5>Numero de fierro:{{ this.iron.num_iron }}</h5>
+        <h5>Marca:{{ this.iron.brand }}</h5>
+        <h5>Numero de libro:{{ this.iron.num_library }}</h5>
+        <h5>Numero de foja:{{ this.iron.num_foja }}</h5>
+        <h5>Año del fierro:{{ this.iron.year }}</h5>
+        <h5>Validez:{{ this.iron.validity }}</h5>
+        <h5>Vigencia:{{ this.iron.limite }}</h5>
+      </div>
+      <a routerLink="/iron" class="btn btn-primary">Regresar</a>
+    </div>
+    <div class="card-footer text-muted">
+      Información del detalle del Fierro de ganado
+    </div>
+  </div>
