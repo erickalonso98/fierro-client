@@ -21,8 +21,10 @@ import { ReportComponent } from "./components/report/report.component";
 import { RolesComponent } from "./components/roles/roles.component";
 import { SettingsComponent } from "./components/settings/settings.component";
 import { SuperAdminComponent } from "./components/super-admin/super-admin.component";
+import { TenenciaDetailComponent } from "./components/tenencia-detail/tenencia-detail.component";
 import { TenenciaTypeComponent } from "./components/tenencia-type/tenencia-type.component";
 import { TypeExploitationDetailComponent } from "./components/type-exploitation-detail/type-exploitation-detail.component";
+import { TypeIronDetailComponent } from "./components/type-iron-detail/type-iron-detail.component";
 import { UserComponent } from "./components/user/user.component";
 import { UsersComponent } from "./components/users/users.component";
 
@@ -50,6 +52,8 @@ const appRoutes:Routes = [
     {path:'person-edit/:id',component:PersonEditComponent},
     {path:'generate_report',component:ReportComponent},
     {path:'exploitation/:id',component:TypeExploitationDetailComponent},
+    {path:'tenencia-detail/:id',component:TenenciaDetailComponent},
+    {path:'type-iron-detail/:id',component:TypeIronDetailComponent},
     {path:'iron-detail/:id',component:IronDetailComponent},
     {path:'property-detail:/id',component:PropertyDetailComponent},
     {path:'logout/:sure',component:LoginComponent},
