@@ -10,12 +10,15 @@ import { Tenencia } from 'src/app/models/tenencia';
 })
 export class TenenciaDetailComponent implements OnInit {
 
+  public page_title:string;
   public tenencia:Tenencia;
   constructor(
     private _tenenciaService:TenenciaService,
     private _route:ActivatedRoute,
     private _router:Router
-  ) { }
+  ) { 
+    this.page_title = 'Detalle del tipo de tenencia de la tierra';
+  }
 
   ngOnInit(): void {
     this.getTenenciaOne();
