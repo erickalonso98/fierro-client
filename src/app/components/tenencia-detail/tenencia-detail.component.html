@@ -1,1 +1,18 @@
-<p>tenencia-detail works!</p>
+<div *ngIf="!this.tenencia">
+    Cargando...
+</div>
+<div class="card text-center mt-5">
+    <div class="card-header">
+      <h2>{{ this.page_title }}</h2>
+    </div>
+    <div class="card-body">
+        <div *ngIf="this.tenencia">
+            <h5 class="card-title">{{ this.tenencia.id }}</h5>
+            <p class="card-text">{{ this.tenencia.name }}</p>
+            <a routerLink="/type-tenencia" class="btn btn-primary">Regresar</a>
+        </div>
+    </div>
+    <div class="card-footer text-muted">
+      Información del tipo de tenencia de la tierra
+    </div>
+  </div>
