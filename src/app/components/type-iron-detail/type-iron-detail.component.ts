@@ -22,6 +22,26 @@ export class TypeIronDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getTypeIron();
+  }
+
+  public getTypeIron(){
+    this._route.params.subscribe((params) => {
+      let id = +params['id'];
+      this._ironTypeService.getOneIronType(id).subscribe(
+        (response) => {
+          if(response.status == 'success'){
+              this.iron_type = response.type;
+              console.log(this.iron_type);
+          }else{
+            this._router.navigate(['/iron-type']);
+          }
+        },
+        (error) => {
+          console.error(<any>error);
+        }
+      );
+    });
   }
 
 }
