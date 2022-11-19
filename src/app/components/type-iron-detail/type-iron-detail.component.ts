@@ -10,7 +10,16 @@ import { Iron_Type } from 'src/app/models/iron_type';
 })
 export class TypeIronDetailComponent implements OnInit {
 
-  constructor() { }
+  public page_title:string;
+  public iron_type:Iron_Type;
+
+  constructor(
+    private _ironTypeService:IronTypeService,
+    private _route:ActivatedRoute,
+    private _router:Router
+  ) { 
+    this.page_title = 'Detalle del tipo de fierro';
+  }
 
   ngOnInit(): void {
   }
