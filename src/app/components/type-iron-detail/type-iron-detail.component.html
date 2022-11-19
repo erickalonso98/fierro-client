@@ -1,11 +1,16 @@
+<div *ngIf="!this.iron_type">
+    Cargando...
+</div>
 <div class="card text-center mt-5">
     <div class="card-header">
       <h2>{{ this.page_title }}</h2>
     </div>
     <div class="card-body">
-      <h5 class="card-title">Special title treatment</h5>
-      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-      <a routerLink="/iron-type" class="btn btn-primary">Regresar</a>
+        <div *ngIf="this.iron_type">
+            <h5 class="card-title">{{ this.iron_type.id }}</h5>
+            <p class="card-text">{{ this.iron_type.name }}</p>
+            <a routerLink="/iron-type" class="btn btn-primary">Regresar</a>
+        </div>
     </div>
     <div class="card-footer text-muted">
       Detalle del tipo de fierro para herra ganado
