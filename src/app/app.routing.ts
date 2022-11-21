@@ -28,6 +28,8 @@ import { TypeIronDetailComponent } from "./components/type-iron-detail/type-iron
 import { UserComponent } from "./components/user/user.component";
 import { UsersComponent } from "./components/users/users.component";
 
+import { IndentityGuard } from "./services/indentity.guard";
+
 const appRoutes:Routes = [
     {path:'',redirectTo:'/login',pathMatch:'full'},
     {path:'login',component:LoginComponent},
@@ -37,25 +39,25 @@ const appRoutes:Routes = [
     {path:'user',component:UserComponent},
     {path:'users',component:UsersComponent},
     {path:'detail',component:DetailComponent},
-    {path:'settings',component:SettingsComponent},
-    {path:'person',component:PersonComponent},
-    {path:'person-detail/:id',component:PersonDetailComponent},
-    {path:'iron',component:IronComponent},
-    {path:'property',component:PropertyComponent},
-    {path:'exploitation-type',component:ExploitationTypeComponent},
-    {path:'type-tenencia',component:TenenciaTypeComponent},
-    {path:'iron-type',component:IronTypeComponent},
-    {path:'list-person-information',component:PersonInformationComponent},
-    {path:'property-iron',component:PropertyIronComponent},
-    {path:'high-alta',component:HighAltaComponent},
-    {path:'roles-users',component:RolesComponent},
-    {path:'person-edit/:id',component:PersonEditComponent},
-    {path:'generate_report',component:ReportComponent},
-    {path:'exploitation/:id',component:TypeExploitationDetailComponent},
-    {path:'tenencia-detail/:id',component:TenenciaDetailComponent},
-    {path:'type-iron-detail/:id',component:TypeIronDetailComponent},
-    {path:'iron-detail/:id',component:IronDetailComponent},
-    {path:'property-detail/:id',component:PropertyDetailComponent},
+    {path:'settings',component:SettingsComponent,canActivate:[IndentityGuard]},
+    {path:'person',component:PersonComponent,canActivate:[IndentityGuard]},
+    {path:'person-detail/:id',component:PersonDetailComponent,canActivate:[IndentityGuard]},
+    {path:'iron',component:IronComponent,canActivate:[IndentityGuard]},
+    {path:'property',component:PropertyComponent,canActivate:[IndentityGuard]},
+    {path:'exploitation-type',component:ExploitationTypeComponent,canActivate:[IndentityGuard]},
+    {path:'type-tenencia',component:TenenciaTypeComponent,canActivate:[IndentityGuard]},
+    {path:'iron-type',component:IronTypeComponent,canActivate:[IndentityGuard]},
+    {path:'list-person-information',component:PersonInformationComponent,canActivate:[IndentityGuard]},
+    {path:'property-iron',component:PropertyIronComponent,canActivate:[IndentityGuard]},
+    {path:'high-alta',component:HighAltaComponent,canActivate:[IndentityGuard]},
+    {path:'roles-users',component:RolesComponent,canActivate:[IndentityGuard]},
+    {path:'person-edit/:id',component:PersonEditComponent,canActivate:[IndentityGuard]},
+    {path:'generate_report',component:ReportComponent,canActivate:[IndentityGuard]},
+    {path:'exploitation/:id',component:TypeExploitationDetailComponent,canActivate:[IndentityGuard]},
+    {path:'tenencia-detail/:id',component:TenenciaDetailComponent,canActivate:[IndentityGuard]},
+    {path:'type-iron-detail/:id',component:TypeIronDetailComponent,canActivate:[IndentityGuard]},
+    {path:'iron-detail/:id',component:IronDetailComponent,canActivate:[IndentityGuard]},
+    {path:'property-detail/:id',component:PropertyDetailComponent,canActivate:[IndentityGuard]},
     {path:'logout/:sure',component:LoginComponent},
     {path:'**',component:ErrorComponent}
 ];

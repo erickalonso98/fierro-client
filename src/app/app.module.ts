@@ -70,6 +70,9 @@ import { TypeIronDetailComponent } from './components/type-iron-detail/type-iron
 // Set the fonts to use
 PdfMakeWrapper.setFonts(pdfFonts);
 
+import { IndentityGuard } from "./services/indentity.guard";
+import { UserService } from './services/user.service';
+
 
 @NgModule({
   declarations: [
@@ -130,7 +133,7 @@ PdfMakeWrapper.setFonts(pdfFonts);
     AngularFileUploaderModule,
     SidebarModule.forRoot()
   ],
-  providers: [appRotingProviders],
+  providers: [appRotingProviders,IndentityGuard,UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
