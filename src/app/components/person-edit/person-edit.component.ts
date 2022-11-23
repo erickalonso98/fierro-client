@@ -184,6 +184,11 @@ export class PersonEditComponent implements OnInit {
         (response) => {
           if(response.status == 'success'){
             this.persona = response.person
+
+            if(this.persona.user_id != this.identity.sub){
+              this._router.navigate(['/list-person-information']);
+            }
+
           }else{
             this._router.navigate(['/list-person-information']);
           }
