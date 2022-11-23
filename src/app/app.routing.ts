@@ -38,7 +38,7 @@ const appRoutes:Routes = [
     {path:'admin',component:AdminComponent},
     {path:'user',component:UserComponent},
     {path:'users',component:UsersComponent},
-    {path:'detail',component:DetailComponent},
+    {path:'detail',component:DetailComponent,canActivate:[IndentityGuard]},
     {path:'settings',component:SettingsComponent,canActivate:[IndentityGuard]},
     {path:'person',component:PersonComponent,canActivate:[IndentityGuard]},
     {path:'person-detail/:id',component:PersonDetailComponent,canActivate:[IndentityGuard]},
