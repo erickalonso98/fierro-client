@@ -72,6 +72,10 @@ PdfMakeWrapper.setFonts(pdfFonts);
 
 import { IndentityGuard } from "./services/indentity.guard";
 import { UserService } from './services/user.service';
+import { ListStateComponent } from './components/list-state/list-state.component';
+import { FormStateComponent } from './components/form-state/form-state.component';
+import { FormMunicipalityComponent } from './components/form-municipality/form-municipality.component';
+import { ListMunicipalityComponent } from './components/list-municipality/list-municipality.component';
 
 
 @NgModule({
@@ -122,7 +126,11 @@ import { UserService } from './services/user.service';
     IronDetailComponent,
     PropertyDetailComponent,
     TenenciaDetailComponent,
-    TypeIronDetailComponent
+    TypeIronDetailComponent,
+    ListStateComponent,
+    FormStateComponent,
+    FormMunicipalityComponent,
+    ListMunicipalityComponent
   ],
   imports: [
     BrowserModule,
