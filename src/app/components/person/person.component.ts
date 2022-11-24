@@ -65,6 +65,8 @@ export class PersonComponent implements OnInit {
   public identity:any;
 
   public arrayState:Array<any> = [];
+  public url:string;
+  public is_edit:boolean;
 
   public options_froala: Object = {
     charCounterCount: true,
@@ -112,6 +114,8 @@ export class PersonComponent implements OnInit {
   ) {
       this.token = this._userService.getToken();
       this.identity = this._userService.getIdentity();
+      this.url = global.url;
+      this.is_edit = true;
    }
 
   ngOnInit(): void {
