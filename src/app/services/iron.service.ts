@@ -33,6 +33,16 @@ export class IronService {
 
   }
 
+  public update(token,iron,id):Observable<any>{
+    let json = JSON.stringify(iron);
+    let params = 'json='+json;
+
+    let headers = new HttpHeaders().set('Content-Type','application/x-www-form-urlencoded')
+                                   .set('Authorization',token);
+    
+    return this._http.put(this.url+'iron/'+id,params,{headers});
+  }
+
   public getIron(id):Observable<any>{
     let headers = new HttpHeaders().set('Content-Type','application/x-www-form-urlencoded');
     return this._http.get(this.url+'iron/'+id,{headers});

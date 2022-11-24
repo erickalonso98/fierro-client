@@ -32,6 +32,15 @@ export class PropertyService {
       return this._http.post(this.url+'property',params,{headers});
    }
 
+   public update(token,property,id):Observable<any>{
+      let json = JSON.stringify(property);
+      let params = 'json='+json;
+      let headers = new HttpHeaders().set('Content-Type','application/x-www-form-urlencoded')
+                                     .set('Authorization',token);
+      
+      return this._http.put(this.url+'property/'+id,params,{headers});
+   }
+
    public getProperty(id):Observable<any>{
     let headers = new HttpHeaders().set('Content-Type','application/x-www-form-urlencoded');
     return this._http.get(this.url+'property/'+id,{headers});
