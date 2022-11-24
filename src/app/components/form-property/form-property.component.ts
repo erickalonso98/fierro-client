@@ -38,6 +38,8 @@ export class FormPropertyComponent implements OnInit {
 
   public token:any;
   public identity:any;
+  public url:string;
+  public is_register:boolean;
 
   public afuConfig:any = {
     multiple: false,
@@ -81,6 +83,8 @@ export class FormPropertyComponent implements OnInit {
     this.property = new Property(1,'',1,1,1,'','','',new Date,'');
     this.token = this._userService.getToken();
     this.identity = this._userService.getIdentity();
+    this.url = global.url;
+    this.is_register = true;
    }
 
   ngOnInit(): void {
