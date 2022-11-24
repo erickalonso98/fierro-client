@@ -138,6 +138,9 @@
                     </div>
                     <div class="form-group">
                       <label for="image">{{ this.labelimage }}</label>
+                      <div *ngIf="this.is_edit && this.persona.image">
+                        <img class="rounded mx-auto d-block " width="150px" height="150px" src="{{ this.url+'person/image/'+this.persona.image }}" alt="persona">
+                      </div>
                       <angular-file-uploader
                                 [config]="afuConfig"
                                 [resetUpload]="resetVar"
