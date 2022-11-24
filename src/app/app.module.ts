@@ -76,6 +76,8 @@ import { ListStateComponent } from './components/list-state/list-state.component
 import { FormStateComponent } from './components/form-state/form-state.component';
 import { FormMunicipalityComponent } from './components/form-municipality/form-municipality.component';
 import { ListMunicipalityComponent } from './components/list-municipality/list-municipality.component';
+import { IronEditComponent } from './components/iron-edit/iron-edit.component';
+import { PropertyEditComponent } from './components/property-edit/property-edit.component';
 
 
 @NgModule({
@@ -130,7 +132,9 @@ import { ListMunicipalityComponent } from './components/list-municipality/list-m
     ListStateComponent,
     FormStateComponent,
     FormMunicipalityComponent,
-    ListMunicipalityComponent
+    ListMunicipalityComponent,
+    IronEditComponent,
+    PropertyEditComponent
   ],
   imports: [
     BrowserModule,

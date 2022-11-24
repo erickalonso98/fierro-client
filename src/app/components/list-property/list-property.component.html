@@ -31,7 +31,10 @@
         <td>{{ property.num_parcelas }}</td>
         <td>{{ property.type_superficie }}</td>
         <td>{{ property.created_at }}</td>
-        <td><a class="btn btn-success" [routerLink]="['/property-detail',property.id]">Leer</a></td>
+        <td>
+          <a class="btn btn-success w-100" [routerLink]="['/property-detail',property.id]">Leer</a>
+          <a class="btn btn-warning mt-2" [routerLink]="['/property-edit',property.id]">Editar</a>
+        </td>
       </tr>
     </tbody>
   </table>

@@ -6,6 +6,7 @@ import { ErrorComponent } from "./components/error/error.component";
 import { ExploitationTypeComponent } from "./components/exploitation-type/exploitation-type.component";
 import { HighAltaComponent } from "./components/high-alta/high-alta.component";
 import { IronDetailComponent } from "./components/iron-detail/iron-detail.component";
+import { IronEditComponent } from "./components/iron-edit/iron-edit.component";
 import { IronTypeComponent } from "./components/iron-type/iron-type.component";
 import { IronComponent } from "./components/iron/iron.component";
 import { LoginComponent } from "./components/login/login.component";
@@ -14,6 +15,7 @@ import { PersonEditComponent } from "./components/person-edit/person-edit.compon
 import { PersonInformationComponent } from "./components/person-information/person-information.component";
 import { PersonComponent } from "./components/person/person.component";
 import { PropertyDetailComponent } from "./components/property-detail/property-detail.component";
+import { PropertyEditComponent } from "./components/property-edit/property-edit.component";
 import { PropertyIronComponent } from "./components/property-iron/property-iron.component";
 import { PropertyComponent } from "./components/property/property.component";
 import { RegisterComponent } from "./components/register/register.component";
@@ -58,6 +60,8 @@ const appRoutes:Routes = [
     {path:'type-iron-detail/:id',component:TypeIronDetailComponent,canActivate:[IndentityGuard]},
     {path:'iron-detail/:id',component:IronDetailComponent,canActivate:[IndentityGuard]},
     {path:'property-detail/:id',component:PropertyDetailComponent,canActivate:[IndentityGuard]},
+    {path:'iron-edit/:id',component:IronEditComponent,canActivate:[IndentityGuard]},
+    {path:'property-edit/:id',component:PropertyEditComponent,canActivate:[IndentityGuard]},
     {path:'logout/:sure',component:LoginComponent},
     {path:'**',component:ErrorComponent}
 ];

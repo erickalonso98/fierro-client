@@ -34,7 +34,10 @@
         <td>{{ iron.year }}</td>
         <td>{{ iron.validity }}</td>
         <td>{{ iron.limite }}</td>
-        <td><a class="btn btn-success" [routerLink]="['/iron-detail',iron.id]">Leer</a></td>
+        <td>
+          <a class="btn btn-success w-100" [routerLink]="['/iron-detail',iron.id]">Leer</a>
+          <a class="btn btn-warning mt-2" [routerLink]="['/iron-edit',iron.id]">Editar</a>
+        </td>
       </tr>
     </tbody>
   </table>
