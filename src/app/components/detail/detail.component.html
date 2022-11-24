@@ -1,1 +1,22 @@
-<p>detail works!</p>
+<div class="card text-center mt-5">
+    <div class="card-header">
+      <h2>{{ this.page_title }}</h2>
+    </div>
+    <div class="card-body">
+        <div *ngIf="!this.user">
+            Cargando...
+        </div>
+        <div *ngIf="this.user">
+            <img class="rounded mx-auto d-block " width="150px" height="150px" src="{{ this.url+'user/avatar/'+this.user.image }}" alt="user">
+            <h5 class="mt-2">{{ this.user.name }}</h5>
+            <h5>{{ this.user.surname }}</h5>
+            <h5>{{ this.user.lastname}}</h5>
+            <h5>{{ this.user.email }}</h5>
+            <p [innerHTML]="">{{ this.user.description }}</p>
+            <a routerLink="/super-admin" class="btn btn-primary mt-3">Regresar</a>
+        </div>
+    </div>
+    <div class="card-footer text-muted">
+       El detalle para saber de su información 
+    </div>
+  </div>
