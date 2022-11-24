@@ -65,6 +65,7 @@ export class PersonEditComponent implements OnInit {
   public token:any;
   public identity:any;
   public is_edit:boolean;
+  public url:string;
 
   public arrayState:Array<any> = [];
 
@@ -116,6 +117,7 @@ export class PersonEditComponent implements OnInit {
       this.token = this._userService.getToken();
       this.identity = this._userService.getIdentity();
       this.is_edit = true;
+      this.url = global.url;
    }
 
   ngOnInit(): void {
