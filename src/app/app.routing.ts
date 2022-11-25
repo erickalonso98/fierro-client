@@ -51,7 +51,7 @@ const appRoutes:Routes = [
     {path:'iron-type',component:IronTypeComponent,canActivate:[IndentityGuard]},
     {path:'list-person-information',component:PersonInformationComponent,canActivate:[IndentityGuard]},
     {path:'property-iron',component:PropertyIronComponent,canActivate:[IndentityGuard]},
-    {path:'high-alta',component:HighAltaComponent,canActivate:[IndentityGuard]},
+    {path:'high-alta',component:HighAltaComponent},
     {path:'roles-users',component:RolesComponent,canActivate:[IndentityGuard]},
     {path:'person-edit/:id',component:PersonEditComponent,canActivate:[IndentityGuard]},
     {path:'generate_report',component:ReportComponent,canActivate:[IndentityGuard]},
