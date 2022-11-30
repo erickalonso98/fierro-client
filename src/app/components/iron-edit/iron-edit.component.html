@@ -1,1 +1,153 @@
-<p>iron-edit works!</p>
+<ng-sidebar-container>
+    <!--sidebar-->
+    <ng-sidebar [(opened)]="this.opened">
+        <div class="text-justify mt-2 ml-4">
+          <h3 title="menu">{{ this.menu }}</h3>
+            <button class="btn btn-primary" (click)="toggleSidebar()">{{ this.cerrar }}</button>
+        </div>
+        <ul class="nav flex-column mt-2 text-justify">
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/person" (click)="toggleSidebar()">{{ this.person }}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/property" (click)="toggleSidebar()">{{ this.property }}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/iron" (click)="toggleSidebar()">{{ this.fierro }}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/exploitation-type" (click)="toggleSidebar()">{{ this.exploitation }}</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/type-tenencia" (click)="toggleSidebar()">{{ this.tenencia }}</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/iron-type" (click)="toggleSidebar()">{{ this.type_iron }}</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" routerLink="/users" (click)="toggleSidebar()">{{ this.users}}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" routerLink="/roles-users" (click)="toggleSidebar()">{{ this.roles }}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" routerLink="/generate_report" (click)="toggleSidebar()">{{ this.report }}</a>
+            </li>
+        </ul>
+    </ng-sidebar>
+    <div ng-sidebar-content>
+        <!--page content-->  
+        <div class="container mt-4">
+          <div class="row">
+            <div class="col-md-3">
+              <button class="btn btn-primary mt-3 ml-2" (click)="toggleSidebar()">{{ this.open }}</button>
+            </div>
+            <div class="col-md-9">
+              <div class="card mt-3">
+                <div class="card-header">
+                  <div class="card-title">
+                    <h2 class="text-center">{{ this.page_title }}</h2>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <form #updateIron="ngForm" (ngSubmit)="onSubmit(updateIron)">
+                    <div class="form-group">
+                      <label for="person_id">Persona</label>
+                      <select name="person_id" class="form-control p-2" #person_id="ngModel" [(ngModel)]="this.iron.person_id" required="">
+                        <option *ngFor="let persona of Arrayperson" value="{{ persona.id }}">{{ persona.name }} {{ persona.surname }} {{ persona.lastname }}</option>
+                      </select>
+                      <small *ngIf="!this.person_id.valid && this.person_id.touched" class="invalid-feedback d-block">
+                        Seleccione ala persona es obligatorio
+                      </small>
+                    </div>
+                    <div class="form-group">
+                      <label for="typeiron">Tipo de fierro</label>
+                      <select class="form-control" name="iron_type_id" #iron_type_id="ngModel" [(ngModel)]="this.iron.iron_type_id" required="">
+                        <option *ngFor="let types of ArrayironType" value="{{ types.id }}">{{ types.name }}</option>
+                      </select>
+                      <small *ngIf="!this.iron_type_id.valid && this.iron_type_id.touched" class="invalid-feedback d-block">
+                        Seleccione el tipo de fierro es obligatorio
+                      </small>
+                    </div>
+                    <div class="form-group">
+                      <label for="high">Corregir pago de alta</label>
+                      <select class="form-control" name="high_iron_id" #high_iron_id="ngModel" [(ngModel)]="this.iron.high_iron_id" required="">
+                        <option *ngFor="let high of Arrayhigh" value="{{ high.id }}">folio del fierro.-{{ high.invoice }} pago.-{{ high.amount }}</option>
+                      </select>
+                      <small *ngIf="!this.high_iron_id.valid && this.high_iron_id.touched" class="invalid-feedback d-block">
+                        Seleccione el Pago del fierro
+                      </small>
+                    </div>
+                    <div class="form-group">
+                      <label for="name">Nombre del fierro</label>
+                      <input type="text" class="form-control" name="name" #name="ngModel" [(ngModel)]="this.iron.name" placeholder="Nombre" required="">
+                      <small *ngIf="!this.name.valid && this.name.touched" class="invalid-feedback d-block">
+                        El nombre del fierro es obligatorio
+                      </small>
+                    </div>
+                    <div class="form-group">
+                      <label for="num_iron">Numero de fierro</label>
+                      <input type="text" class="form-control" name="num_iron" #num_iron="ngModel" [(ngModel)]="this.iron.num_iron" placeholder="Numero de fierro" required="">
+                      <small *ngIf="!this.num_iron.valid && this.num_iron.touched" class="invalid-feedback d-block">
+                        El numero de fierro es obligatorio
+                      </small>
+                    </div>
+                    <div class="form-group">
+                      <label for="brand">Marca</label>
+                      <input type="text" class="form-control" name="brand" #brand="ngModel" [(ngModel)]="this.iron.brand" placeholder="Marca" required="">
+                      <small *ngIf="!this.brand.valid && this.brand.touched" class="invalid-feedback d-block">
+                        La marca del fierro es obligatorio
+                      </small>
+                    </div>
+                    <div class="form-group">
+                      <label for="num_library">Numero de libro</label>
+                      <input type="number" class="form-control" name="num_library" #num_library="ngModel" [(ngModel)]="this.iron.num_library" placeholder="Numero de libro" required="">
+                      <small *ngIf="!this.num_library.valid && this.num_library.touched" class="invalid-feedback d-block">
+                        El numero de libro es obligatorio
+                      </small>
+                    </div>
+                    <div class="form-group">
+                      <label for="num_foja">Numero de foja</label>
+                      <input type="number" class="form-control" name="num_foja" #num_foja="ngModel" [(ngModel)]="this.iron.num_foja" placeholder="Numero de foja" required="">
+                      <small *ngIf="!this.num_foja.valid && this.num_foja.touched" class="invalid-feedback d-block">
+                        El numero de foja es obligatorio
+                      </small>
+                    </div>
+                    <div class="form-group">
+                      <label for="image">Imagen</label>
+                      <div *ngIf="this.is_edit && this.iron.image"> 
+                        <img class="rounded mx-auto d-block " width="150px" height="150px" src="{{ this.url+'iron/image/'+this.iron.image }}" alt="iron">
+                      </div>
+                      <angular-file-uploader
+                        [config]="afuConfig"
+                        [resetUpload]="resetVar"
+                        (ApiResponse)="imageUpload($event)">
+                      </angular-file-uploader>
+                    </div>
+                    <div class="form-group">
+                      <label for="year">Año</label>
+                      <input type="text" class="form-control" name="year" #year="ngModel" [(ngModel)]="this.iron.year" placeholder="Año" required="">
+                      <small *ngIf="!this.year.valid && this.year.touched" class="invalid-feedback d-block">
+                        El año del fierro es obligatorio
+                      </small>
+                    </div>
+                    <div class="form-group">
+                      <label for="validity">Validez</label>
+                      <input type="text" class="form-control" name="validity" #validity="ngModel" [(ngModel)]="this.iron.validity" placeholder="Validez del fierro" required="">
+                      <small *ngIf="!this.validity.valid && this.validity.touched" class="invalid-feedback d-block">
+                        La validez del fierro es obligatorio
+                      </small>
+                    </div>
+                    <div class="form-group">
+                      <label for="limit">Vigencia</label>
+                      <input type="text" class="form-control" name="limite" #limite="ngModel" [(ngModel)]="this.iron.limite" placeholder="Vigencia">
+                    </div>
+                    <input type="submit" class="btn btn-primary btn-block" value="Modificar" [disabled]="this.updateIron.invalid">
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+</ng-sidebar-container>
