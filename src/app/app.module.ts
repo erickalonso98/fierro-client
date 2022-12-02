@@ -78,6 +78,10 @@ import { FormMunicipalityComponent } from './components/form-municipality/form-m
 import { ListMunicipalityComponent } from './components/list-municipality/list-municipality.component';
 import { IronEditComponent } from './components/iron-edit/iron-edit.component';
 import { PropertyEditComponent } from './components/property-edit/property-edit.component';
+import { ReportCurpComponent } from './components/report-curp/report-curp.component';
+import { ReportRfcComponent } from './components/report-rfc/report-rfc.component';
+import { ReportNameComponent } from './components/report-name/report-name.component';
+import { ReportIdComponent } from './components/report-id/report-id.component';
 
 
 @NgModule({
@@ -134,7 +138,11 @@ import { PropertyEditComponent } from './components/property-edit/property-edit.
     FormMunicipalityComponent,
     ListMunicipalityComponent,
     IronEditComponent,
-    PropertyEditComponent
+    PropertyEditComponent,
+    ReportCurpComponent,
+    ReportRfcComponent,
+    ReportNameComponent,
+    ReportIdComponent
   ],
   imports: [
     BrowserModule,
