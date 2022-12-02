@@ -19,6 +19,10 @@ import { PropertyEditComponent } from "./components/property-edit/property-edit.
 import { PropertyIronComponent } from "./components/property-iron/property-iron.component";
 import { PropertyComponent } from "./components/property/property.component";
 import { RegisterComponent } from "./components/register/register.component";
+import { ReportCurpComponent } from "./components/report-curp/report-curp.component";
+import { ReportIdComponent } from "./components/report-id/report-id.component";
+import { ReportNameComponent } from "./components/report-name/report-name.component";
+import { ReportRfcComponent } from "./components/report-rfc/report-rfc.component";
 import { ReportComponent } from "./components/report/report.component";
 import { RolesComponent } from "./components/roles/roles.component";
 import { SettingsComponent } from "./components/settings/settings.component";
@@ -62,6 +66,10 @@ const appRoutes:Routes = [
     {path:'property-detail/:id',component:PropertyDetailComponent,canActivate:[IndentityGuard]},
     {path:'iron-edit/:id',component:IronEditComponent,canActivate:[IndentityGuard]},
     {path:'property-edit/:id',component:PropertyEditComponent,canActivate:[IndentityGuard]},
+    {path:'generate-report-curp',component:ReportCurpComponent,canActivate:[IndentityGuard]},
+    {path:'generate-report-rfc',component:ReportRfcComponent,canActivate:[IndentityGuard]},
+    {path:'generate-report-name',component:ReportNameComponent,canActivate:[IndentityGuard]},
+    {path:'generate-report-id',component:ReportIdComponent,canActivate:[IndentityGuard]},
     {path:'logout/:sure',component:LoginComponent},
     {path:'**',component:ErrorComponent}
 ];
