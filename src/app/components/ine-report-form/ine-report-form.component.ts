@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Img, PdfMakeWrapper,Txt ,IImg} from 'pdfmake-wrapper';
+import { Img, PdfMakeWrapper,Txt ,IImg,Table} from 'pdfmake-wrapper';
 import { PersonService } from 'src/app/services/person.service';
 import { UserService } from 'src/app/services/user.service';
 import { Person } from 'src/app/models/person';
@@ -66,17 +66,16 @@ export class IneReportFormComponent implements OnInit {
           this.persona = response.person;
           this.iron = response.person.iron;
           this.property = response.person.property;
-
           
-          new Img(this.url+'property/image/'+this.property.image).fit([100,100]).build().then((img:IImg) => {
+          new Img(this.url+'property/image/'+this.property.image).fit([100,100]).margin(10).lineHeight(5).build().then((img:IImg) => {
+            pdf.add(img);
+            });
+
+          new Img(this.url+'iron/image/'+this.iron.image).fit([100,100]).margin(10).lineHeight(5).build().then((img:IImg) => {
             pdf.add(img);
           });
 
-          new Img(this.url+'iron/image/'+this.iron.image).fit([100,100]).build().then((img:IImg) => {
-            pdf.add(img);
-          });
-
-          new Img (this.url+'person/image/'+this.persona.image).fit([100,100]).build().then((img:IImg) => {
+          new Img (this.url+'person/image/'+this.persona.image).fit([100,100]).margin(10).absolutePosition(30,50).lineHeight(5).build().then((img:IImg) => {
             pdf.add(img);
             pdf.create().open();
           });
@@ -92,10 +91,10 @@ export class IneReportFormComponent implements OnInit {
             new Txt('Ine:'+response.person.ine).alignment('center').bold().italics().end,
             new Txt('Edad:'+response.person.age).alignment('center').bold().italics().end,
             new Txt('Telefono:'+response.person.phone).alignment('center').bold().italics().end,
-            new Txt('Correo Electronico:'+response.person.email).alignment('center').bold().italics().end,
+            new Txt('Correo Electronico:'+response.person.email).alignment('center').bold().italics().end
           ]);
 
-          //pdf.create().open();
+         // pdf.create().open();
           
         }else{
           Swal.fire({
