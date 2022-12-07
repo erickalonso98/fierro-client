@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Img, PdfMakeWrapper,Txt ,IImg,Table} from 'pdfmake-wrapper';
+import { Img, PdfMakeWrapper,Txt ,IImg,Table,Cell} from 'pdfmake-wrapper';
 import { PersonService } from 'src/app/services/person.service';
 import { UserService } from 'src/app/services/user.service';
 import { Person } from 'src/app/models/person';
 import { Iron } from 'src/app/models/iron';
 import { Property } from 'src/app/models/property';
+import { State } from 'src/app/models/state';
 import { global } from 'src/app/services/global';
 import Swal from 'sweetalert2';
 
@@ -19,6 +20,7 @@ export class IneReportFormComponent implements OnInit {
   public persona:Person;
   public iron:Iron;
   public property:Property;
+  public state:State;
   public dataPerson:any;
   public header:string;
   public title_person:string;
@@ -66,32 +68,29 @@ export class IneReportFormComponent implements OnInit {
           this.persona = response.person;
           this.iron = response.person.iron;
           this.property = response.person.property;
+          this.state = response.person.state;
           
-          new Img(this.url+'property/image/'+this.property.image).fit([100,100]).margin(10).lineHeight(5).build().then((img:IImg) => {
+          new Img(this.url+'property/image/'+this.property.image).fit([100,100]).build().then((img:IImg) => {
             pdf.add(img);
             });
 
-          new Img(this.url+'iron/image/'+this.iron.image).fit([100,100]).margin(10).lineHeight(5).build().then((img:IImg) => {
+          new Img(this.url+'iron/image/'+this.iron.image).fit([100,100]).build().then((img:IImg) => {
             pdf.add(img);
           });
 
-          new Img (this.url+'person/image/'+this.persona.image).fit([100,100]).margin(10).absolutePosition(30,50).lineHeight(5).build().then((img:IImg) => {
+          new Img (this.url+'person/image/'+this.persona.image).fit([100,100]).build().then((img:IImg) => {
             pdf.add(img);
             pdf.create().open();
           });
 
           pdf.add([
-            new Txt('id:'+response.person.id).alignment('center').bold().italics().end,
-            new Txt('Nombre:'+response.person.name).alignment('center').bold().italics().end,
-            new Txt('Apellido paterno:'+response.person.surname).alignment('center').bold().italics().end,
-            new Txt('Apellido materno:'+response.person.lastname).alignment('center').bold().italics().end,
-            new Txt('Codigo postal:'+response.person.code_postal).alignment('center').bold().italics().end,
-            new Txt('Curp:'+response.person.curp).alignment('center').bold().italics().end,
-            new Txt('Rfc:'+response.person.rfc).alignment('center').bold().italics().end,
-            new Txt('Ine:'+response.person.ine).alignment('center').bold().italics().end,
-            new Txt('Edad:'+response.person.age).alignment('center').bold().italics().end,
-            new Txt('Telefono:'+response.person.phone).alignment('center').bold().italics().end,
-            new Txt('Correo Electronico:'+response.person.email).alignment('center').bold().italics().end
+            new Table([
+              [new Txt('Nombre').end,new Cell(new Txt(this.persona.name).bold().end).border([false,false]).end],
+              [new Txt('Apellido paterno').end,new Cell(new Txt(this.persona.surname).bold().end).border([false,false]).end],
+              [new Txt('Apellido materno').end,new Cell(new Txt(this.persona.lastname).bold().end).border([false,false]).end],
+              [new Txt('Apellido materno').end,new Cell(new Txt(this.persona.lastname).bold().end).border([false,false]).end],
+              [new Txt('Estado').end,new Cell(new Txt(this.state.name).bold().end).border([false,false]).end]
+            ]).widths([100, 150]).end
           ]);
 
          // pdf.create().open();
