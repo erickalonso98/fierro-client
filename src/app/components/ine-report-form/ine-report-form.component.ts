@@ -61,10 +61,6 @@ export class IneReportFormComponent implements OnInit {
           
           const pdf = new PdfMakeWrapper();
 
-          pdf.header(this.header);
-          pdf.footer(this.footer);
-          
-
           this.persona = response.person;
           this.iron = response.person.iron;
           this.property = response.person.property;
@@ -85,12 +81,45 @@ export class IneReportFormComponent implements OnInit {
 
           pdf.add([
             new Table([
-              [new Txt('Nombre').end,new Cell(new Txt(this.persona.name).bold().end).border([false,false]).end],
-              [new Txt('Apellido paterno').end,new Cell(new Txt(this.persona.surname).bold().end).border([false,false]).end],
-              [new Txt('Apellido materno').end,new Cell(new Txt(this.persona.lastname).bold().end).border([false,false]).end],
-              [new Txt('Apellido materno').end,new Cell(new Txt(this.persona.lastname).bold().end).border([false,false]).end],
-              [new Txt('Estado').end,new Cell(new Txt(this.state.name).bold().end).border([false,false]).end]
-            ]).widths([100, 150]).end
+              [new Cell(new Txt('Información de la persona').alignment('center').color('#fff').bold().end).fillColor('#0997bd').border([false,true]).end]
+            ]).widths([500,150]).end,
+            new Table([
+              [new Cell(new Txt('Id').bold().end).border([false,true]).end,new Cell(new Txt(response.person.id).alignment('center').bold().end).border([false,true]).end],
+              [new Cell(new Txt('Nombre').bold().end).border([false,true]).end,new Cell(new Txt(this.persona.name).alignment('center').bold().end).border([false,true]).end],
+              [new Cell(new Txt('Apellido paterno').bold().end).border([false,true]).end,new Cell(new Txt(this.persona.surname).alignment('center').bold().end).border([false,true]).end],
+              [new Cell(new Txt('Apellido materno').bold().end).border([false,true]).end,new Cell(new Txt(this.persona.lastname).alignment('center').bold().end).border([false,true]).end],
+              [new Cell(new Txt('Estado').bold().end).border([false,true]).end,new Cell(new Txt(this.state.name).alignment('center').bold().end).border([false,true]).end],
+              [new Cell(new Txt('Cod.postal').bold().end).border([false,true]).end,new Cell(new Txt(this.persona.code_postal).alignment('center').bold().end).border([false,true]).end],
+              [new Cell(new Txt('Curp').bold().end).border([false,true]).end,new Cell(new Txt(this.persona.curp).alignment('center').bold().end).border([false,true]).end],
+              [new Cell(new Txt('rfc').bold().end).border([false,true]).end,new Cell(new Txt(this.persona.rfc).alignment('center').bold().end).border([false,true]).end],
+              [new Cell(new Txt('Ine').bold().end).border([false,true]).end,new Cell(new Txt(this.persona.ine).alignment('center').bold().end).border([false,true]).end],
+              [new Cell(new Txt('Edad').bold().end).border([false,true]).end,new Cell(new Txt(response.person.age).alignment('center').bold().end).border([false,true]).end],
+              [new Cell(new Txt('Telefono').bold().end).border([false,true]).end,new Cell(new Txt(this.persona.phone).alignment('center').bold().end).border([false,true]).end],
+              [new Cell(new Txt('Correo').bold().end).border([false,true]).end,new Cell(new Txt(this.persona.email).alignment('center').bold().end).border([false,true]).end]
+            ]).widths([100, 150]).heights(20).end,
+            new Table([
+              [new Cell(new Txt('Información del fierro').alignment('center').color('#fff').bold().end).fillColor('#0997bd').border([false,true]).end]
+            ]).widths([500,150]).end,
+            new Table([
+              [new Cell(new Txt('Id').bold().end).border([false,true]).end,new Cell(new Txt(response.person.iron.id).alignment('center').bold().end).border([false,true]).end],
+              [new Cell(new Txt('Nombre').bold().end).border([false,true]).end,new Cell(new Txt(this.iron.name).alignment('center').bold().end).border([false,true]).end],
+              [new Cell(new Txt('Num.Fierro').bold().end).border([false,true]).end,new Cell(new Txt(this.iron.num_iron).alignment('center').bold().end).border([false,true]).end],
+              [new Cell(new Txt('Marca').bold().end).border([false,true]).end,new Cell(new Txt(this.iron.brand).alignment('center').bold().end).border([false,true]).end],
+              [new Cell(new Txt('Num.libro').bold().end).border([false,true]).end,new Cell(new Txt(response.person.iron.num_library).alignment('center').bold().end).border([false,true]).end],
+              [new Cell(new Txt('Num.foja').bold().end).border([false,true]).end,new Cell(new Txt(response.person.iron.num_foja).alignment('center').bold().end).border([false,true]).end],
+              [new Cell(new Txt('Año').bold().end).border([false,true]).end,new Cell(new Txt(response.person.iron.year).alignment('center').bold().end).border([false,true]).end],
+              [new Cell(new Txt('Vigencia').bold().end).border([false,true]).end,new Cell(new Txt(this.iron.validity).alignment('center').bold().end).border([false,true]).end],
+              [new Cell(new Txt('Limite').bold().end).border([false,true]).end,new Cell(new Txt(this.iron.limite).alignment('center').bold().end).border([false,true]).end]
+              ]).widths([100,150]).heights(20).end,
+              new Table([
+                [new Cell(new Txt('Información del predio').alignment('center').color('#fff').bold().end).fillColor('#0997bd').border([false,true]).end]
+              ]).widths([500,150]).end,
+              new Table([
+                [new Cell(new Txt('Id').bold().end).border([false,true]).end,new Cell(new Txt(response.person.property.id).alignment('center').bold().end).border([false,true]).end],
+                [new Cell(new Txt('Nombre').bold().end).border([false,true]).end,new Cell(new Txt(this.property.name).alignment('center').bold().end).border([false,true]).end],
+                [new Cell(new Txt('Num.parcelas').bold().end).border([false,true]).end,new Cell(new Txt(this.property.num_parcelas).alignment('center').bold().end).border([false,true]).end],
+                [new Cell(new Txt('Tipo.superficie').bold().end).border([false,true]).end,new Cell(new Txt(this.property.type_superficie).alignment('center').bold().end).border([false,true]).end]
+              ]).widths([100,150]).heights(20).end
           ]);
 
          // pdf.create().open();
