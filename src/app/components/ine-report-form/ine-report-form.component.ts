@@ -65,13 +65,6 @@ export class IneReportFormComponent implements OnInit {
           this.iron = response.person.iron;
           this.property = response.person.property;
           this.state = response.person.state;
-          
-
-          pdf.info({
-            title: 'A document',
-            author: 'pdfmake-wrapper',
-            subject: 'subject of document'
-          });
 
           new Img(this.url+'property/image/'+this.property.image).fit([200,150]).absolutePosition(340,630).build().then((img:IImg) => {
             pdf.add(img);
@@ -85,6 +78,13 @@ export class IneReportFormComponent implements OnInit {
             pdf.add(img);
             pdf.create().open();
           });
+
+          /*
+           pdf.info({
+            title: 'A document',
+            author: 'pdfmake-wrapper',
+            subject: 'subject of document'
+          });*/
 
           pdf.add([
             new Table([
