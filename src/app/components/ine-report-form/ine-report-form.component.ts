@@ -66,15 +66,22 @@ export class IneReportFormComponent implements OnInit {
           this.property = response.person.property;
           this.state = response.person.state;
           
-          new Img(this.url+'property/image/'+this.property.image).fit([100,100]).build().then((img:IImg) => {
+
+          pdf.info({
+            title: 'A document',
+            author: 'pdfmake-wrapper',
+            subject: 'subject of document'
+          });
+
+          new Img(this.url+'property/image/'+this.property.image).fit([200,150]).absolutePosition(340,630).build().then((img:IImg) => {
             pdf.add(img);
             });
 
-          new Img(this.url+'iron/image/'+this.iron.image).fit([100,100]).build().then((img:IImg) => {
+          new Img(this.url+'iron/image/'+this.iron.image).fit([200,150]).absolutePosition(350,400).build().then((img:IImg) => {
             pdf.add(img);
           });
 
-          new Img (this.url+'person/image/'+this.persona.image).fit([100,100]).build().then((img:IImg) => {
+          new Img (this.url+'person/image/'+this.persona.image).fit([300,200]).absolutePosition(350,95).build().then((img:IImg) => {
             pdf.add(img);
             pdf.create().open();
           });
