@@ -1,8 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { Img, PdfMakeWrapper,Txt ,IImg,Table,Cell} from 'pdfmake-wrapper';
 import { PersonService } from 'src/app/services/person.service';
 import { UserService } from 'src/app/services/user.service';
 import { Person } from 'src/app/models/person';
+import { Iron } from 'src/app/models/iron';
+import { Property } from 'src/app/models/property';
+import { State } from 'src/app/models/state';
 import { global } from 'src/app/services/global';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-curp-report-form',
