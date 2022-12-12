@@ -1,0 +1,19 @@
+<div class="card">
+    <div class="card-header">
+        <div class="card-title">
+            <h2 class="text-center">{{ this.page_title }}</h2>
+        </div>
+    </div>
+    <div class="card-body">
+        <form #reportId="ngForm" (ngSubmit)="getId(this.persona.id)">
+            <div class="form-group">
+                <label for="id">Id</label>
+                <input type="number" class="form-control" name="id" #id="ngModel" [(ngModel)]="this.persona.id" placeholder="id" required="">
+                <small *ngIf="!this.id.valid && this.id.touched" class="invalid-feedback d-block">
+                    El id de la persona es obligatoria
+                </small>
+            </div>
+            <input type="submit" class="btn btn-danger btn-block" value="Generar Reporte" [disabled]="this.reportId.invalid">
+        </form>
+    </div>
+</div>
