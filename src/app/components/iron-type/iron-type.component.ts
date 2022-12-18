@@ -26,7 +26,7 @@ export class IronTypeComponent implements OnInit {
   public users:string = "Usuarios";
   public informations:string = "Información del tipo de fierro";
   public roles:string = "Roles de usuario";
-  public report:string = "Reportes";
+  public report:string = "Reporte x Ine";
 
   public labelname:string = "Nombre del tipo de fierro";
   public EnterIron:string = "Registrar";

@@ -28,7 +28,7 @@ export class PropertyEditComponent implements OnInit {
   public type_iron:string = "Tipo de fierro";
   public users:string = "Usuarios";
   public roles:string = "Roles de usuarios";
-  public report:string = "Reportes";
+  public report:string = "Reporte x Ine";
 
   public page_title:string;
   public url:string;

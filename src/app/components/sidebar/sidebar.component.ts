@@ -21,7 +21,7 @@ export class SidebarComponent implements OnInit {
   public type_iron:string = "Tipo de fierro";
   public users:string = "Usuarios";
   public roles:string = "Roles de usuarios";
-  public report:string = "Reportes";
+  public report:string = "Reporte x Ine";
   constructor() { }
 
   ngOnInit(): void {

@@ -29,7 +29,7 @@ export class TenenciaTypeComponent implements OnInit {
   public type_iron:string = "Tipo de fierro";
   public users:string = "Usuarios";
   public roles:string = "Roles de usuario";
-  public report:string = "Reportes";
+  public report:string = "Reporte x Ine";
 
   public type_tenencia:Tenencia;
   public token:any;

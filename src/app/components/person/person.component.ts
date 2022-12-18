@@ -31,7 +31,7 @@ export class PersonComponent implements OnInit {
   public users:string = "Usuarios";
   public information_person:string = "Información de las personas";
   public roles:string = "Roles de usuario";
-  public report:string = "Reportes";
+  public report:string = "Reporte x Ine";
 
   public status:string;
   public property_iron:string = "Realizar Pago del fierro";
