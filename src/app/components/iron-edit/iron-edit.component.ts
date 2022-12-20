@@ -130,7 +130,7 @@ export class IronEditComponent implements OnInit {
           Swal.fire({
             icon: response.status,
             title: '¡Enhorabuena!',
-            text: "El fierro Modificado de la persona con exito!!"
+            text: "El fierro Revalidado de la persona con exito!!"
           })
         }else{
           Swal.fire({
