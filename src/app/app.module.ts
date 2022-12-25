@@ -83,6 +83,7 @@ import { ReportRfcComponent } from './components/report-rfc/report-rfc.component
 import { ReportNameComponent } from './components/report-name/report-name.component';
 import { ReportIdComponent } from './components/report-id/report-id.component';
 import { IdReportFormComponent } from './components/id-report-form/id-report-form.component';
+import { FootComponent } from './components/foot/foot.component';
 
 
 @NgModule({
@@ -144,7 +145,8 @@ import { IdReportFormComponent } from './components/id-report-form/id-report-for
     ReportRfcComponent,
     ReportNameComponent,
     ReportIdComponent,
-    IdReportFormComponent
+    IdReportFormComponent,
+    FootComponent
   ],
   imports: [
     BrowserModule,
