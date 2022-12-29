@@ -10,6 +10,7 @@ import { IronEditComponent } from "./components/iron-edit/iron-edit.component";
 import { IronTypeComponent } from "./components/iron-type/iron-type.component";
 import { IronComponent } from "./components/iron/iron.component";
 import { LoginComponent } from "./components/login/login.component";
+import { PayHighComponent } from "./components/pay-high/pay-high.component";
 import { PersonDetailComponent } from "./components/person-detail/person-detail.component";
 import { PersonEditComponent } from "./components/person-edit/person-edit.component";
 import { PersonInformationComponent } from "./components/person-information/person-information.component";
@@ -70,6 +71,7 @@ const appRoutes:Routes = [
     {path:'generate-report-rfc',component:ReportRfcComponent,canActivate:[IndentityGuard]},
     {path:'generate-report-name',component:ReportNameComponent,canActivate:[IndentityGuard]},
     {path:'generate-report-id',component:ReportIdComponent,canActivate:[IndentityGuard]},
+    {path:'high-pay',component:PayHighComponent,canActivate:[IndentityGuard]},
     {path:'logout/:sure',component:LoginComponent},
     {path:'**',component:ErrorComponent}
 ];
