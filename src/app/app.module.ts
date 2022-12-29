@@ -85,6 +85,8 @@ import { ReportIdComponent } from './components/report-id/report-id.component';
 import { IdReportFormComponent } from './components/id-report-form/id-report-form.component';
 import { FootComponent } from './components/foot/foot.component';
 import { TimeMenuComponent } from './components/time-menu/time-menu.component';
+import { PayHighComponent } from './components/pay-high/pay-high.component';
+import { ListHighPayComponent } from './components/list-high-pay/list-high-pay.component';
 
 
 @NgModule({
@@ -148,7 +150,9 @@ import { TimeMenuComponent } from './components/time-menu/time-menu.component';
     ReportIdComponent,
     IdReportFormComponent,
     FootComponent,
-    TimeMenuComponent
+    TimeMenuComponent,
+    PayHighComponent,
+    ListHighPayComponent
   ],
   imports: [
     BrowserModule,
