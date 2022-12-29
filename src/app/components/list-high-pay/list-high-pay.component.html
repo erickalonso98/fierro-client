@@ -1,1 +1,21 @@
-<p>list-high-pay works!</p>
+<h2 class="text-center">{{ this.title_high }}</h2>
+<p class="text-center">Los pagos realizados para registrar el fierro</p>
+<hr>
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Folio</th>
+        <th scope="col">Monto</th>
+        <th scope="col">Creación</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let high of ArrayHigh">
+        <th scope="row">{{ high.id }}</th>
+        <td>{{ high.invoice }}</td>
+        <td>{{ high.amount }}</td>
+        <td>{{ high.created_at }}</td>
+      </tr>
+    </tbody>
+  </table>
