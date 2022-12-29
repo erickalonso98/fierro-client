@@ -84,6 +84,7 @@ import { ReportNameComponent } from './components/report-name/report-name.compon
 import { ReportIdComponent } from './components/report-id/report-id.component';
 import { IdReportFormComponent } from './components/id-report-form/id-report-form.component';
 import { FootComponent } from './components/foot/foot.component';
+import { TimeMenuComponent } from './components/time-menu/time-menu.component';
 
 
 @NgModule({
@@ -146,7 +147,8 @@ import { FootComponent } from './components/foot/foot.component';
     ReportNameComponent,
     ReportIdComponent,
     IdReportFormComponent,
-    FootComponent
+    FootComponent,
+    TimeMenuComponent
   ],
   imports: [
     BrowserModule,
