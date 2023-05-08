@@ -1,1 +1,19 @@
-<p>curp-report-form works!</p>
+<div class="card">
+    <div class="card-header">
+        <div class="card-title">
+            <h2 class="text-center">{{ this.page_title }}</h2>
+        </div>
+    </div>
+    <div class="card-body">
+        <form #reportCurp="ngForm" (ngSubmit)="getCurp(this.persona.curp)">
+            <div class="form-group">
+                <label for="curp">Curp</label>
+                <input type="text" class="form-control" name="curp" #curp="ngModel" [(ngModel)]="this.persona.curp" placeholder="Curp" required="">
+                <small *ngIf="!this.curp.valid && this.curp.touched" class="invalid-feedback d-block">
+                    La curp es obligatoria
+                </small>
+            </div>
+            <input type="submit" class="btn btn-danger btn-block" value="Generar reporte" [disabled]="this.reportCurp.invalid">
+        </form>
+    </div>
+</div>

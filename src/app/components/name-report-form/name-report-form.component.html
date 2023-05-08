@@ -1,1 +1,19 @@
-<p>name-report-form works!</p>
+<div class="card">
+    <div class="card-header">
+        <div class="card-title">
+            <h2 class="text-center">{{ this.page_title }}</h2>
+        </div>
+    </div>
+    <div class="card-body">
+        <form #formName="ngForm" (ngSubmit)="getName(this.persona.name)">
+            <div class="form-group">
+                <label for="name">Nombre</label>
+                <input type="text" class="form-control" name="name" #name="ngModel" [(ngModel)]="this.persona.name" placeholder="Nombre" required="">
+                <small *ngIf="!this.name.valid && this.name.touched" class="invalid-feedback d-block">
+                    El Nombre es obligatorio
+                </small>
+            </div>
+            <input type="submit" class="btn btn-danger btn-block" value="Generar reporte" [disabled]="this.formName.invalid">
+        </form>
+    </div>
+</div>

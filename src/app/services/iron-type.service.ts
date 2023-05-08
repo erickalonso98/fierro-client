@@ -31,4 +31,10 @@ export class IronTypeService {
         
       return this._http.post(this.url+'type_iron',params,{headers});
    }
+
+   public getOneIronType(id):Observable<any>{
+    let headers = new HttpHeaders().set('Content-Type','application/x-www-form-urlencoded');
+
+    return this._http.get(this.url+'type_iron/'+id,{headers});
+   }
 }

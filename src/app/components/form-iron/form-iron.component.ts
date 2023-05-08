@@ -41,6 +41,7 @@ export class FormIronComponent implements OnInit {
 
   public token:any;
   public identity:any;
+  public is_register:boolean;
 
   public afuConfig:any = {
     multiple: false,
@@ -83,6 +84,8 @@ export class FormIronComponent implements OnInit {
     this.iron = new Iron(1,1,1,1,'','','',0,0,'',0,'','');
     this.token = this._userService.getToken();
     this.identity = this._userService.getIdentity();
+    this.url = global.url;
+    this.is_register = true;
   }
 
   ngOnInit(): void {

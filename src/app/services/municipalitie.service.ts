@@ -20,4 +20,17 @@ export class MunicipalitieService {
       return this._http.get(this.url+'municipalitie/',{headers});
    }
 
+   public getMunicipalitie(id):Observable<any>{
+    let headers = new HttpHeaders().set('Content-Type','application/x-www-form-urlencoded');
+    return this._http.get(this.url+'municipalitie/'+id,{headers});
+   }
+
+   public create(token,municipalitie):Observable<any>{
+    let json = JSON.stringify(municipalitie);
+    let params = 'json='+json;
+    let headers = new HttpHeaders().set('Content-Type','application/x-www-form-urlencoded')
+                                   .set('Authorization',token);
+    return this._http.post(this.url+'municipalitie',params,{headers});
+   }
+
 }

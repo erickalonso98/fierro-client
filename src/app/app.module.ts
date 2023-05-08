@@ -56,7 +56,37 @@ import { NameReportFormComponent } from './components/name-report-form/name-repo
 
 
 
+import { PdfMakeWrapper } from 'pdfmake-wrapper';
+import * as pdfFonts from "pdfmake/build/vfs_fonts";
+import { TypeExploitationDetailComponent } from './components/type-exploitation-detail/type-exploitation-detail.component';
+import { IronDetailComponent } from './components/iron-detail/iron-detail.component';
+import { PropertyDetailComponent } from './components/property-detail/property-detail.component';
+import { TenenciaDetailComponent } from './components/tenencia-detail/tenencia-detail.component';
+import { TypeIronDetailComponent } from './components/type-iron-detail/type-iron-detail.component'; // fonts provided for pdfmake
 
+// If any issue using previous fonts import. you can try this:
+// import pdfFonts from "pdfmake/build/vfs_fonts";
+
+// Set the fonts to use
+PdfMakeWrapper.setFonts(pdfFonts);
+
+import { IndentityGuard } from "./services/indentity.guard";
+import { UserService } from './services/user.service';
+import { ListStateComponent } from './components/list-state/list-state.component';
+import { FormStateComponent } from './components/form-state/form-state.component';
+import { FormMunicipalityComponent } from './components/form-municipality/form-municipality.component';
+import { ListMunicipalityComponent } from './components/list-municipality/list-municipality.component';
+import { IronEditComponent } from './components/iron-edit/iron-edit.component';
+import { PropertyEditComponent } from './components/property-edit/property-edit.component';
+import { ReportCurpComponent } from './components/report-curp/report-curp.component';
+import { ReportRfcComponent } from './components/report-rfc/report-rfc.component';
+import { ReportNameComponent } from './components/report-name/report-name.component';
+import { ReportIdComponent } from './components/report-id/report-id.component';
+import { IdReportFormComponent } from './components/id-report-form/id-report-form.component';
+import { FootComponent } from './components/foot/foot.component';
+import { TimeMenuComponent } from './components/time-menu/time-menu.component';
+import { PayHighComponent } from './components/pay-high/pay-high.component';
+import { ListHighPayComponent } from './components/list-high-pay/list-high-pay.component';
 
 
 @NgModule({
@@ -102,7 +132,27 @@ import { NameReportFormComponent } from './components/name-report-form/name-repo
     IneReportFormComponent,
     RfcReportFormComponent,
     CurpReportFormComponent,
-    NameReportFormComponent
+    NameReportFormComponent,
+    TypeExploitationDetailComponent,
+    IronDetailComponent,
+    PropertyDetailComponent,
+    TenenciaDetailComponent,
+    TypeIronDetailComponent,
+    ListStateComponent,
+    FormStateComponent,
+    FormMunicipalityComponent,
+    ListMunicipalityComponent,
+    IronEditComponent,
+    PropertyEditComponent,
+    ReportCurpComponent,
+    ReportRfcComponent,
+    ReportNameComponent,
+    ReportIdComponent,
+    IdReportFormComponent,
+    FootComponent,
+    TimeMenuComponent,
+    PayHighComponent,
+    ListHighPayComponent
   ],
   imports: [
     BrowserModule,
@@ -113,7 +163,7 @@ import { NameReportFormComponent } from './components/name-report-form/name-repo
     AngularFileUploaderModule,
     SidebarModule.forRoot()
   ],
-  providers: [appRotingProviders],
+  providers: [appRotingProviders,IndentityGuard,UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

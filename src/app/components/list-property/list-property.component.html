@@ -3,21 +3,18 @@
       <tr>
         <th scope="col">#</th>
         <th scope="col">Nombre</th>
-        <th scope="col">Tipo de explotación</th>
-        <th scope="col">Tipo de tenencia</th>
         <th scope="col">Imagen</th>
         <th scope="col">Descripción</th>
         <th scope="col">Num. parcelas</th>
         <th scope="col">Tipo de superficie</th>
         <th scope="col">Alta padron</th>
+        <th scope="col">Opciones</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let property of dataProperty">
         <th scope="row">{{ property.id }}</th>
         <td>{{ property.name }}</td>
-        <td>{{ property.exploitation.name }}</td>
-        <td>{{ property.tenencia.name }}</td>
         <td>
             <div *ngIf="property.image">
                 <img class="rounded mx-auto d-block" src="{{ this.url+'property/image/'+property.image }}" width="100px" height="100px" alt="predio">
@@ -30,6 +27,10 @@
         <td>{{ property.num_parcelas }}</td>
         <td>{{ property.type_superficie }}</td>
         <td>{{ property.created_at }}</td>
+        <td>
+          <a class="btn btn-success w-100" [routerLink]="['/property-detail',property.id]">Leer</a>
+          <a class="btn btn-warning mt-2" [routerLink]="['/property-edit',property.id]">Editar</a>
+        </td>
       </tr>
     </tbody>
   </table>

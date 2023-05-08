@@ -32,7 +32,7 @@ export class PersonEditComponent implements OnInit {
   public users:string = "Usuarios";
   public information_person:string = "Información de las personas";
   public roles:string = "Roles de usuario";
-  public report:string = "Reportes";
+  public report:string = "Reporte x Ine";
 
   public status:string;
   public property_iron:string = "Realizar Pago del fierro";
@@ -65,6 +65,7 @@ export class PersonEditComponent implements OnInit {
   public token:any;
   public identity:any;
   public is_edit:boolean;
+  public url:string;
 
   public arrayState:Array<any> = [];
 
@@ -116,6 +117,7 @@ export class PersonEditComponent implements OnInit {
       this.token = this._userService.getToken();
       this.identity = this._userService.getIdentity();
       this.is_edit = true;
+      this.url = global.url;
    }
 
   ngOnInit(): void {
@@ -184,6 +186,11 @@ export class PersonEditComponent implements OnInit {
         (response) => {
           if(response.status == 'success'){
             this.persona = response.person
+
+            if(this.persona.user_id != this.identity.sub){
+              this._router.navigate(['/list-person-information']);
+            }
+
           }else{
             this._router.navigate(['/list-person-information']);
           }

@@ -71,6 +71,9 @@
               </div>
               <div class="form-group">
                 <label for="image">{{ this.labelimage }}</label>
+                <div *ngIf="this.is_register && this.iron.image">
+                  <img class="rounded mx-auto d-block " width="150px" height="150px" src="{{ this.url+'iron/image/'+this.iron.image }}" alt="iron">
+                </div>
                 <angular-file-uploader
                     [config]="afuConfig"
                     [resetUpload]="resetVar"

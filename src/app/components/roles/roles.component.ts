@@ -28,7 +28,7 @@ export class RolesComponent implements OnInit {
   public type_iron:string = "Tipo de fierro";
   public users:string = "Usuarios";
   public roles:string = "Roles de usuario";
-  public report:string = "Reportes";
+  public report:string = "Reporte x Ine";
   public parrafo:string = "Registra el rol para asignarle al usuario";
 
   public role:Roles;

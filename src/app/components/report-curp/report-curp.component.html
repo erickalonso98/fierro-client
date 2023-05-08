@@ -1,0 +1,66 @@
+<ng-sidebar-container>
+    <!--sidebar-->
+    <ng-sidebar [(opened)]="this.opened">
+        <div class="text-justify mt-2 ml-4">
+          <h3 title="menu">{{ this.menu }}</h3>
+            <button class="btn btn-primary" (click)="toggleSidebar()">{{ this.cerrar }}</button>
+        </div>
+        <ul class="nav flex-column mt-2 text-justify">
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/person" (click)="toggleSidebar()">{{ this.person }}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/property" (click)="toggleSidebar()">{{ this.property }}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/iron" (click)="toggleSidebar()">{{ this.iron }}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/exploitation-type" (click)="toggleSidebar()">{{ this.exploitation }}</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/type-tenencia" (click)="toggleSidebar()">{{ this.tenencia }}</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/iron-type" (click)="toggleSidebar()">{{ this.type_iron }}</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" routerLink="/users" (click)="toggleSidebar()">{{ this.users}}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" routerLink="/roles-users" (click)="toggleSidebar()">{{ this.roles }}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" routerLink="/generate_report" (click)="toggleSidebar()">{{ this.report }}</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" routerLink="/generate-report-curp" (click)="toggleSidebar()">Reporte x curp</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" routerLink="/generate-report-rfc" (click)="toggleSidebar()">Reporte x rfc</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" routerLink="/generate-report-name" (click)="toggleSidebar()">Reporte x nombre</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" routerLink="/generate-report-id" (click)="toggleSidebar()">Reporte x Identificador</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" routerLink="/high-pay" (click)="toggleSidebar()">Pagos de altas de fierro</a>
+          </li>
+        </ul>
+    </ng-sidebar>
+    <div ng-sidebar-content>
+        <!--page content-->  
+       <div class="container mt-3 p-3">
+          <div class="row">
+            <div class="col-md-3">
+              <button class="btn btn-primary mt-2 ml-2" (click)="toggleSidebar()">{{ this.open }}</button>
+            </div>
+            <div class="col-lg-9">
+              <app-curp-report-form></app-curp-report-form>
+            </div>
+          </div>
+       </div>
+    </div>
+</ng-sidebar-container>

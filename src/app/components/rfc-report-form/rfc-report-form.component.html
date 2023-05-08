@@ -1,1 +1,19 @@
-<p>rfc-report-form works!</p>
+<div class="card">
+    <div class="card-header">
+        <div class="card-title">
+            <h2 class="text-center">{{ this.page_title }}</h2>
+        </div>
+    </div>
+    <div class="card-body">
+        <form #formRfc="ngForm" (ngSubmit)="getRfc(this.persona.rfc)">
+            <div class="form-group">
+                <label for="rfc">rfc</label>
+                <input type="text" class="form-control" name="rfc" #rfc="ngModel" [(ngModel)]="this.persona.rfc" placeholder="rfc" required="">
+                <small *ngIf="!this.rfc.valid && this.rfc.touched" class="invalid-feedback d-block">
+                    El rfc es obligatorio
+                </small>
+            </div>
+            <input type="submit" class="btn btn-danger btn-block" value="Generar reporte" [disabled]="this.formRfc.invalid">
+        </form>
+    </div>
+</div>

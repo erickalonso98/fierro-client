@@ -31,7 +31,7 @@ export class PersonComponent implements OnInit {
   public users:string = "Usuarios";
   public information_person:string = "Información de las personas";
   public roles:string = "Roles de usuario";
-  public report:string = "Reportes";
+  public report:string = "Reporte x Ine";
 
   public status:string;
   public property_iron:string = "Realizar Pago del fierro";
@@ -65,6 +65,8 @@ export class PersonComponent implements OnInit {
   public identity:any;
 
   public arrayState:Array<any> = [];
+  public url:string;
+  public is_edit:boolean;
 
   public options_froala: Object = {
     charCounterCount: true,
@@ -112,6 +114,8 @@ export class PersonComponent implements OnInit {
   ) {
       this.token = this._userService.getToken();
       this.identity = this._userService.getIdentity();
+      this.url = global.url;
+      this.is_edit = true;
    }
 
   ngOnInit(): void {
